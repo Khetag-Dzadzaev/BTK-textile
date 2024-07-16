@@ -1,0 +1,167 @@
+@import config
+
+.noscroll
+  overflow: hidden
+
+.lg-backdrop.in
+  opacity: 0.55
+
+.lg-outer .lg-thumb-outer, .lg-outer .lg-toggle-thumb
+  background-color: rgba(0,0,0, .45)
+
+.response
+  position: relative
+  z-index: 2
+
+.success
+  margin-top: 30px
+  background-color: #3fb53f
+  padding: 20px
+  color: #fff
+  animation: fade .25s ease
+  p
+    margin: 0
+
+.errors-list
+  list-style-type: none
+  padding: 0
+  margin-top: 30px
+  background-color: #da4c4c
+  padding: 20px
+  color: #fff
+  animation: fade .25s ease
+
+img
+  max-width: 100%
+  height: auto
+  user-select: none
+
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba($dark, .6)
+  z-index: 3
+  display: none
+  animation: fade .35s ease
+.overlay.active
+  display: block
+
+.breadcrumb-block
+  padding: 20px 0
+  +media-breakpoint-up(sm)
+    padding: 40px 0
+
+.breadcrumb
+  margin: 0
+  list-style-type: none
+  display: flex
+  flex-wrap: wrap
+  font-size: 14px
+  line-height: 19px
+  position: relative
+  z-index: 1
+  padding: 0
+  position: relative
+  +media-breakpoint-up(sm)
+    font-size: 16px
+  &__link
+    color: #A4A4A4
+    &:after
+      content: '|'
+      margin: 0 5px
+    &:hover
+      text-decoration: none
+      color: #fff
+      &:after
+        color: #A4A4A4
+  &__item_active
+    color: #fff
+
+.content
+  margin-bottom: 30px
+  &_m0
+    margin: 0
+  iframe
+    width: 100%
+    margin: 0 auto !important
+  p
+    font-size: 16px
+    font-weight: 400
+    line-height: 24px
+    color: $text
+    margin: 0
+    &:not(:last-child)
+      margin-bottom: 10px
+    +media-breakpoint-up(sm)
+      &:not(:last-child)
+        margin-bottom: 24px
+  b, strong
+    font-weight: 700
+    font-size: 17px
+    line-height: 24px
+    margin-bottom: 15px
+  a
+    color: $accent
+    text-decoration: underline
+    &:hover
+      text-decoration: none
+  img
+    margin-bottom: 30px
+  h2
+    font-size: 20px
+    line-height: 26px
+    color: $text
+    font-weight: 600
+    margin-bottom: 20px
+    +media-breakpoint-up(sm)
+      font-size: 24px
+      line-height: 30px
+  h3
+    font-size: 19px
+    line-height: 25px
+    color: $text
+    font-weight: 600
+    margin-top: 40px
+    margin-bottom: 20px
+  ol
+    padding: 0
+    padding-left: 17px
+    margin-left: 10px
+    li
+      margin-bottom: 10px
+      padding-left: 8px
+    li::marker
+      color: $accent
+      font-weight: 700
+  ul
+    list-style-type: none
+    margin-left: 10px
+    padding: 0
+    margin-bottom: 15px
+    +media-breakpoint-up(sm)
+      margin-bottom: 25px
+    li
+      font-size: 16px
+      line-height: 24px
+      font-weight: 300
+      margin-bottom: 10px
+      position: relative
+      padding-left: 25px
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        height: 8px
+        width: 8px
+        flex: 0 0 8px
+        border-radius: 50%
+        background-color: $accent
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)
+        display: inline-block
+        margin-right: 15px
+        margin-top: 7px
+  .wp-caption
+    max-width: 100%
