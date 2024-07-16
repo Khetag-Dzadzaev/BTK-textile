@@ -1,167 +1,435 @@
 @import config
 
+.body
+	background-color: #000
+
 .noscroll
-  overflow: hidden
+	overflow: hidden
 
 .lg-backdrop.in
-  opacity: 0.55
+	opacity: 0.55
 
 .lg-outer .lg-thumb-outer, .lg-outer .lg-toggle-thumb
-  background-color: rgba(0,0,0, .45)
+	background-color: rgba(0,0,0, .45)
 
 .response
-  position: relative
-  z-index: 2
+	position: relative
+	z-index: 2
 
 .success
-  margin-top: 30px
-  background-color: #3fb53f
-  padding: 20px
-  color: #fff
-  animation: fade .25s ease
-  p
-    margin: 0
+	margin-top: 30px
+	background-color: #3fb53f
+	padding: 20px
+	color: #fff
+	animation: fade .25s ease
+	p
+		margin: 0
 
 .errors-list
-  list-style-type: none
-  padding: 0
-  margin-top: 30px
-  background-color: #da4c4c
-  padding: 20px
-  color: #fff
-  animation: fade .25s ease
+	list-style-type: none
+	padding: 0
+	margin-top: 30px
+	background-color: #da4c4c
+	padding: 20px
+	color: #fff
+	animation: fade .25s ease
 
 img
-  max-width: 100%
-  height: auto
-  user-select: none
+	max-width: 100%
+	height: auto
+	user-select: none
 
 .overlay
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  background: rgba($dark, .6)
-  z-index: 3
-  display: none
-  animation: fade .35s ease
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: rgba($dark, .6)
+	z-index: 3
+	display: none
+	animation: fade .35s ease
 .overlay.active
-  display: block
+	display: block
 
 .breadcrumb-block
-  padding: 20px 0
-  +media-breakpoint-up(sm)
-    padding: 40px 0
+	padding: 20px 0
+	+media-breakpoint-up(sm)
+		padding: 40px 0
 
 .breadcrumb
-  margin: 0
-  list-style-type: none
-  display: flex
-  flex-wrap: wrap
-  font-size: 14px
-  line-height: 19px
-  position: relative
-  z-index: 1
-  padding: 0
-  position: relative
-  +media-breakpoint-up(sm)
-    font-size: 16px
-  &__link
-    color: #A4A4A4
-    &:after
-      content: '|'
-      margin: 0 5px
-    &:hover
-      text-decoration: none
-      color: #fff
-      &:after
-        color: #A4A4A4
-  &__item_active
-    color: #fff
+	margin: 0
+	list-style-type: none
+	display: flex
+	flex-wrap: wrap
+	font-size: 14px
+	line-height: 19px
+	position: relative
+	z-index: 1
+	padding: 0
+	position: relative
+	+media-breakpoint-up(sm)
+		font-size: 16px
+	&__link
+		color: #A4A4A4
+		&:after
+			content: '|'
+			margin: 0 5px
+		&:hover
+			text-decoration: none
+			color: #fff
+			&:after
+				color: #A4A4A4
+	&__item_active
+		color: #fff
 
 .content
-  margin-bottom: 30px
-  &_m0
-    margin: 0
-  iframe
-    width: 100%
-    margin: 0 auto !important
-  p
-    font-size: 16px
-    font-weight: 400
-    line-height: 24px
-    color: $text
-    margin: 0
-    &:not(:last-child)
-      margin-bottom: 10px
-    +media-breakpoint-up(sm)
-      &:not(:last-child)
-        margin-bottom: 24px
-  b, strong
-    font-weight: 700
-    font-size: 17px
-    line-height: 24px
-    margin-bottom: 15px
-  a
-    color: $accent
-    text-decoration: underline
-    &:hover
-      text-decoration: none
-  img
-    margin-bottom: 30px
-  h2
-    font-size: 20px
-    line-height: 26px
-    color: $text
-    font-weight: 600
-    margin-bottom: 20px
-    +media-breakpoint-up(sm)
-      font-size: 24px
-      line-height: 30px
-  h3
-    font-size: 19px
-    line-height: 25px
-    color: $text
-    font-weight: 600
-    margin-top: 40px
-    margin-bottom: 20px
-  ol
-    padding: 0
-    padding-left: 17px
-    margin-left: 10px
-    li
-      margin-bottom: 10px
-      padding-left: 8px
-    li::marker
-      color: $accent
-      font-weight: 700
-  ul
-    list-style-type: none
-    margin-left: 10px
-    padding: 0
-    margin-bottom: 15px
-    +media-breakpoint-up(sm)
-      margin-bottom: 25px
-    li
-      font-size: 16px
-      line-height: 24px
-      font-weight: 300
-      margin-bottom: 10px
-      position: relative
-      padding-left: 25px
-      &:before
-        content: ''
-        position: absolute
-        left: 0
-        height: 8px
-        width: 8px
-        flex: 0 0 8px
-        border-radius: 50%
-        background-color: $accent
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)
-        display: inline-block
-        margin-right: 15px
-        margin-top: 7px
-  .wp-caption
-    max-width: 100%
+	margin-bottom: 30px
+	&_m0
+		margin: 0
+	iframe
+		width: 100%
+		margin: 0 auto !important
+	p
+		font-size: 16px
+		font-weight: 400
+		line-height: 24px
+		color: $text
+		margin: 0
+		&:not(:last-child)
+			margin-bottom: 10px
+		+media-breakpoint-up(sm)
+			&:not(:last-child)
+				margin-bottom: 24px
+	b, strong
+		font-weight: 700
+		font-size: 17px
+		line-height: 24px
+		margin-bottom: 15px
+	a
+		color: $accent
+		text-decoration: underline
+		&:hover
+			text-decoration: none
+	img
+		margin-bottom: 30px
+	h2
+		font-size: 20px
+		line-height: 26px
+		color: $text
+		font-weight: 600
+		margin-bottom: 20px
+		+media-breakpoint-up(sm)
+			font-size: 24px
+			line-height: 30px
+	h3
+		font-size: 19px
+		line-height: 25px
+		color: $text
+		font-weight: 600
+		margin-top: 40px
+		margin-bottom: 20px
+	ol
+		padding: 0
+		padding-left: 17px
+		margin-left: 10px
+		li
+			margin-bottom: 10px
+			padding-left: 8px
+		li::marker
+			color: $accent
+			font-weight: 700
+	ul
+		list-style-type: none
+		margin-left: 10px
+		padding: 0
+		margin-bottom: 15px
+		+media-breakpoint-up(sm)
+			margin-bottom: 25px
+		li
+			font-size: 16px
+			line-height: 24px
+			font-weight: 300
+			margin-bottom: 10px
+			position: relative
+			padding-left: 25px
+			&:before
+				content: ''
+				position: absolute
+				left: 0
+				height: 8px
+				width: 8px
+				flex: 0 0 8px
+				border-radius: 50%
+				background-color: $accent
+				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)
+				display: inline-block
+				margin-right: 15px
+				margin-top: 7px
+	.wp-caption
+		max-width: 100%
+
+.container
+	max-width: 1311px
+	padding: 0 15px
+	width: 100%
+	margin: 0 auto
+
+.text
+	font-family: Montserrat
+	line-height: 120%
+	font-size: 14px
+	font-weight: 400
+	color: $text
+	&:hover
+		color: $text
+		text-decoration: none
+	&__Inter
+		font-family: Inter
+	&__Mulish
+		font-family: Mulish
+	&__title-big
+		font-size: 38px
+		+media-breakpoint-up(sm)
+			font-size: 48px
+		+media-breakpoint-up(md)
+			font-size: 60px
+	&__title-mid
+		font-size: 32px
+		+media-breakpoint-up(sm)
+			font-size: 38px
+		+media-breakpoint-up(md)
+			font-size: 48px
+	&__title-mini
+		font-size: 24px
+		+media-breakpoint-up(sm)
+			font-size: 32px
+	&_big
+		font-size: 18px
+		+media-breakpoint-up(sm)
+			font-size: 20px
+	&_mid
+		font-size: 16px
+		+media-breakpoint-up(sm)
+			font-size: 18px
+	&_mini
+		font-size: 15px
+		+media-breakpoint-up(sm)
+			font-size: 16px
+	&_nano
+		font-size: 14px
+		+media-breakpoint-up(sm)
+			font-size: 15px
+	&_lh717
+		line-height: 171%
+	&_lh160
+		line-height: 160%
+	&_lh150
+		line-height: 150%
+	&_lh133
+		line-height: 133%
+	&_lh130
+		line-height: 130%
+	&_fw500
+		font-weight: 500
+	&_fw600
+		font-weight: 600
+	&_fw700
+		font-weight: 700
+	&_textUp
+		text-transform: uppercase
+
+.menu
+	display: flex
+	list-style: none
+	gap: 10px
+	padding: 0
+	flex-direction: column
+	margin: 0
+	top: 66px
+	right: 0
+	position: absolute
+	transition: 0.5s
+	background-color: #fff
+	padding: 20px
+	width: 250px
+	transform: translateY(-200%)
+	+media-breakpoint-up(sm)
+		top: 86px
+	&.active
+		transform: translateY(00%)
+	+media-breakpoint-up(lg)
+		transform: translateY(00%)
+		width: auto
+		padding: 0
+		background-color: none
+		flex-direction: row
+		position: static
+	+media-breakpoint-up(xl)
+		gap: 36px
+	&__link
+		padding-bottom: 3.5px
+		border-bottom: solid 1px $text
+		&:hover
+			color: $accent
+	&__item
+		&_parent
+			position: relative
+			z-index: 2
+			padding-right: 25px
+			overflow: hidden
+			&.active
+				&>.menu__arrow-mobile
+					transform: rotate(-90deg)
+				&>.menu-child
+					z-index: 1
+					opacity: 1
+					padding: 20px 0 0 20px
+			+media-breakpoint-up(lg)
+				overflow: visible
+				&::before
+					position: absolute
+					top: 5px
+					right: 0
+					content: ""
+					background-image: url("../images/arrow-button.svg")
+					background-size: cover
+					width: 20px
+					height: 20px
+					transition: 0.5s
+				&:hover
+					&>a
+						color: $accent
+					&::before
+						transform: rotate(-90deg)
+					&>.menu-child
+						z-index: 1
+						opacity: 1
+	&__arrow-mobile
+		position: absolute
+		top: 0
+		right: 0
+		padding: 10px
+		border: 1.5px solid $accent
+		border-radius: 100%
+		background-image: url("../images/arrow-button.svg")
+		background-size: cover
+		background-position: center
+		width: 20px
+		height: 20px
+		transition: 0.5s
+		&.active
+			transform: rotate(-90deg)
+		+media-breakpoint-up(lg)
+			display: none
+
+.menu-child
+	background-color: #fff
+	display: flex
+	flex-direction: column
+	list-style: none
+	gap: 8px
+	opacity: 0
+	z-index: -10
+	transition: 0.5s
+	padding: 0
+	position: static
+	+media-breakpoint-up(lg)
+		padding: 20px
+		width: 250px
+		position: absolute
+		top: 28px
+	&__link
+		display: inline-block
+		width: 100%
+		text-align: right
+		&:hover
+			color: $accent
+	&__item
+		width: 100%
+
+.burger
+	width: 35px
+	height: 20px
+	position: relative
+	display: flex
+	align-items: center
+	cursor: pointer
+	+media-breakpoint-up(lg)
+		display: none
+	&:hover
+		&::after,&::before,&>.burger__line
+			background-color: $accent
+	&.active
+		&>.burger__line
+			display: none
+		&::after
+			bottom: 50%
+			transform: rotate(315deg) translate(0, 50%)
+		&::before
+			top: 50%
+			transform: rotate(-315deg) translate( 0%,-70%)
+	&::after,&::before,&__line
+		width: 100%
+		height: 1.5px
+		content: ""
+		transition: 0.5s
+		background-color: $text
+		position: absolute
+	&::before
+		top: 0
+		left: 0
+	&::after
+		bottom: 0
+		left: 0
+	&__line
+		position: static
+.callback
+	gap: 18px
+	display: flex
+	align-items: center
+	cursor: pointer
+	&:hover
+		&>p
+			color: $accent
+		&>.callback__svg
+			background-color: $accent
+	&>p
+		margin: 0
+		transition: 0.5s
+		display: none
+	+media-breakpoint-up(sm)
+		&>p
+			display: inline
+	&__svg
+		width: 50px
+		height: 50px
+		background-color: #000
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: 0.5s
+		border-radius: 100%
+		border: 3px solid #BBBBBB
+		&>svg
+			width: 18px
+			height: 18px
+			fill: #fff
+
+// header
+
+.header
+	background-color: #fff
+	&__block
+		padding: 8px 0
+		display: flex
+		justify-content: space-between
+		align-items: center
+		+media-breakpoint-up(sm)
+			padding: 18px 0
+	&__right
+		display: flex
+		gap: 15px
+		align-items: center
+		+media-breakpoint-up(sm)
+			gap: 25px

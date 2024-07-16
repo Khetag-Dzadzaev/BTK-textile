@@ -4,13 +4,72 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>test</title>
+	<title>BTK-textile</title>
 	<link rel="stylesheet" href="css/app.min.css" />
-
+	<link rel="icon" href="images/favicon.png">
 </head>
 
 <body class="body">
-	<header class="header" id="header"></header>
+	<header class="header" id="header">
+		<div class="container">
+			<div class="header__block">
+				<a href="/" class="logo-link"><img src="./images/logo.png" alt="logo" class="logo"></a>
+				<ul class="menu">
+					<li class="menu__item"><a href="/" class="menu__link text text_nano text_textUp text_lh160">Главная</a></li>
+					<li class="menu__item menu__item_parent"><a href="/"
+							class="menu__link text text_nano text_textUp text_lh160">Каталог Тканей</a>
+						<div class="menu__arrow-mobile"></div>
+						<ul class="menu-child">
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Каталог Тканей</a>
+							</li>
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Готовые изделия</a>
+							</li>
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Контакты</a>
+							</li>
+						</ul>
+					</li>
+					<li class="menu__item menu__item_parent"><a href="/"
+							class="menu__link text text_nano text_textUp text_lh160">Готовые изделия</a>
+						<div class="menu__arrow-mobile"></div>
+						<ul class="menu-child">
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Главная</a>
+							</li>
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Каталог Тканей</a>
+							</li>
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Готовые изделия</a>
+							</li>
+							<li class="menu-child__item"><a href="/"
+									class="menu-child__link text text_nano text_textUp text_lh160">Контакты</a>
+							</li>
+						</ul>
+					</li>
+					<li class="menu__item"><a href="/" class="menu__link text text_nano text_textUp text_lh160">Контакты</a>
+					</li>
+				</ul>
+				<div class="header__right">
+					<div class="callback">
+						<p class="text text_fw600 text_lh160 text_nano text_textUp">обратная связь</p>
+						<div class="callback__svg">
+							<svg class="contact__before">
+								<use xlink:href="/images/sprite.svg#mesege"></use>
+							</svg>
+						</div>
+					</div>
+					<div class="burger">
+						<div class="burger__line"></div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</header>
 	<main class="main"></main>
 	<footer class="footer"></footer>
 	<script src="js/app.min.js"></script>
