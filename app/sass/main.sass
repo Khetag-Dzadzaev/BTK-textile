@@ -1,7 +1,7 @@
 @import config
 
 .body
-	background-color: #000
+	background: #eef4f7
 
 .noscroll
 	overflow: hidden
@@ -180,7 +180,9 @@ img
 	line-height: 120%
 	font-size: 14px
 	font-weight: 400
+	letter-spacing: 0%
 	color: $text
+	margin: 0
 	&:hover
 		color: $text
 		text-decoration: none
@@ -238,6 +240,21 @@ img
 		font-weight: 700
 	&_textUp
 		text-transform: uppercase
+	&_dark
+		color: $dark
+		&:hover
+			color: $dark
+			text-decoration: none
+	&_accent
+		color: $accent
+		&:hover
+			color: $accent
+			text-decoration: none
+	&_gray
+		color: $gray
+		&:hover
+			color: $gray
+			text-decoration: none
 
 .menu
 	display: flex
@@ -246,17 +263,24 @@ img
 	padding: 0
 	flex-direction: column
 	margin: 0
-	top: 66px
+	top: 0
 	right: 0
 	position: absolute
 	transition: 0.5s
 	background-color: #fff
 	padding: 20px
-	width: 250px
+	width: 100%
+	height: 100vh
+	justify-content: center
 	transform: translateY(-200%)
 	+media-breakpoint-up(sm)
+		justify-content: flex-start
+		top: 66px
+		width: 250px
+		height: auto
 		top: 86px
 	&.active
+		z-index: 3
 		transform: translateY(00%)
 	+media-breakpoint-up(lg)
 		transform: translateY(00%)
@@ -270,6 +294,9 @@ img
 	&__link
 		padding-bottom: 3.5px
 		border-bottom: solid 1px $text
+		font-size: 20px
+		+media-breakpoint-up(sm)
+			font-size: 15px
 		&:hover
 			color: $accent
 	&__item
@@ -278,6 +305,7 @@ img
 			z-index: 2
 			padding-right: 25px
 			overflow: hidden
+			min-height: 35px
 			&.active
 				&>.menu__arrow-mobile
 					transform: rotate(-90deg)
@@ -285,6 +313,8 @@ img
 					z-index: 1
 					opacity: 1
 					padding: 20px 0 0 20px
+			+media-breakpoint-up(sm)
+				min-height: 30px
 			+media-breakpoint-up(lg)
 				overflow: visible
 				&::before
@@ -338,7 +368,7 @@ img
 		padding: 20px
 		width: 250px
 		position: absolute
-		top: 28px
+		top: 33px
 	&__link
 		display: inline-block
 		width: 100%
@@ -355,6 +385,7 @@ img
 	display: flex
 	align-items: center
 	cursor: pointer
+	z-index: 3
 	+media-breakpoint-up(lg)
 		display: none
 	&:hover
@@ -384,6 +415,7 @@ img
 		left: 0
 	&__line
 		position: static
+
 .callback
 	gap: 18px
 	display: flex
@@ -416,6 +448,70 @@ img
 			height: 18px
 			fill: #fff
 
+.section
+	padding: 44px 0
+	+media-breakpoint-up(sm)
+		padding: 64px 0
+	+media-breakpoint-up(md)
+		padding: 84px 0
+	+media-breakpoint-up(lg)
+		padding: 104px 0
+	&_footer
+		padding-bottom: 71px
+	&_pb
+		padding-bottom: 0
+	&_pt
+		padding-top: 0
+	&__title
+		display: flex
+		flex-direction: column
+		gap: 15px
+		+media-breakpoint-up(sm)
+			gap: 25px
+		+media-breakpoint-up(lg)
+			gap: 0
+			flex-direction: row
+			margin: 0 -25px
+		+media-breakpoint-up(wxp)
+			margin: 0 -65px
+		&>h1
+			max-width: 680px
+			+media-breakpoint-up(lg)
+				max-width: 100%
+				padding: 0 25px
+				flex: 0 0 55%
+			+media-breakpoint-up(wxp)
+				padding: 0 65px
+	&__text-button
+		+media-breakpoint-up(lg)
+			padding: 0 25px
+			flex: 0 0 45%
+		+media-breakpoint-up(wxp)
+			padding: 0 65px
+	&__link
+		display: inline-block
+		margin-top: 16px
+		padding-right: 30px
+		position: relative
+		transition: 0.5s
+		+media-breakpoint-up(sm)
+			margin-top: 32px
+		&>span
+			display: block
+			width: 18px
+			height: 18px
+			position: absolute
+			top: calc( 50% - 9px )
+			right: 0
+			transition: 0.5s
+			&>svg
+				margin-bottom: 10px
+				width: 100%
+				height: 100%
+		&:hover
+			color: $accent
+			&>span
+				transform: translate(10%, -10%)
 // header
 
 .header
@@ -433,3 +529,65 @@ img
 		align-items: center
 		+media-breakpoint-up(sm)
 			gap: 25px
+
+// product-sclad
+
+.product-sclad
+	padding-top: 30px
+	display: flex
+	flex-wrap: wrap
+	margin: -10px -6.5px
+	+media-breakpoint-up(sm)
+		margin: -20px -12.5px
+		padding-top: 40px
+	+media-breakpoint-up(md)
+		padding-top: 60px
+	&__box
+		padding: 10px 6.5px
+		flex: 0 0 50%
+		+media-breakpoint-up(sm)
+			padding: 20px 12.5px
+		+media-breakpoint-up(md)
+			flex: 0 0 33.3333%
+	&__block
+		&:hover
+			text-decoration: none
+			&>.product-sclad__text
+				&>.product-sclad__link
+					color: $accent
+					&>span
+						transform: translate(10%, -10%)
+	&__img
+		height: 170px
+		object-fit: cover
+		object-position: center
+		+media-breakpoint-up(sm)
+			height: 200px
+		+media-breakpoint-up(md)
+			height: 180px
+		+media-breakpoint-up(lg)
+			height: 273px
+	&__link
+		display: inline-block
+		margin-top: 16px
+		padding-right: 30px
+		position: relative
+		transition: 0.5s
+		+media-breakpoint-up(sm)
+			margin-top: 32px
+		&>span
+			display: block
+			width: 18px
+			height: 18px
+			position: absolute
+			top: calc( 50% - 9px )
+			right: 0
+			transition: 0.5s
+			&>svg
+				margin-bottom: 10px
+				width: 100%
+				height: 100%
+		&:hover
+			color: $accent
+			&>span
+				transform: translate(10%, -10%)
