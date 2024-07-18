@@ -176,7 +176,7 @@ img
 	margin: 0 auto
 
 .text
-	font-family: Montserrat
+	font-family: Montserrat, sans-serif
 	line-height: 120%
 	font-size: 14px
 	font-weight: 400
@@ -505,6 +505,7 @@ img
 			right: 0
 			transition: 0.5s
 			&>svg
+				fill: $accent
 				margin-bottom: 10px
 				width: 100%
 				height: 100%
@@ -532,7 +533,7 @@ img
 
 // product-sclad
 
-.product-sclad
+.product
 	padding-top: 30px
 	display: flex
 	flex-wrap: wrap
@@ -544,12 +545,19 @@ img
 		padding-top: 60px
 	&__box
 		padding: 10px 6.5px
-		flex: 0 0 50%
+		flex: 0 0 100%
 		+media-breakpoint-up(sm)
+			flex: 0 0 50%
 			padding: 20px 12.5px
 		+media-breakpoint-up(md)
 			flex: 0 0 33.3333%
 	&__block
+		display: block
+		&_bg
+			padding: 24px 18px
+			background-color: #fff
+			+media-breakpoint-up(sm)
+				padding: 36px 24px
 		&:hover
 			text-decoration: none
 			&>.product-sclad__text
@@ -558,6 +566,7 @@ img
 					&>span
 						transform: translate(10%, -10%)
 	&__img
+		width: 100%
 		height: 170px
 		object-fit: cover
 		object-position: center
@@ -567,6 +576,16 @@ img
 			height: 180px
 		+media-breakpoint-up(lg)
 			height: 273px
+		&_bg
+			object-fit: contain
+			width: 100%
+			height: 250px
+			+media-breakpoint-up(sm)
+				height: 305px
+			+media-breakpoint-up(md)
+				height: 250px
+			+media-breakpoint-up(lg)
+				height: 305px
 	&__link
 		display: inline-block
 		margin-top: 16px
@@ -584,6 +603,7 @@ img
 			right: 0
 			transition: 0.5s
 			&>svg
+				fill: $accent
 				margin-bottom: 10px
 				width: 100%
 				height: 100%
@@ -591,3 +611,96 @@ img
 			color: $accent
 			&>span
 				transform: translate(10%, -10%)
+
+// footer
+.footer
+	&__block
+		width: 100%
+		display: flex
+		justify-content: space-between
+		padding-top: 20px
+		border-top: 1px solid rgb(221, 221, 221)
+		padding-bottom: 32px
+		flex-direction: column
+		gap: 20px
+		+media-breakpoint-up(sm)
+			align-items: center
+			padding-top: 30px
+			padding-bottom: 42px
+		+media-breakpoint-up(md)
+			padding-top: 30px
+			padding-bottom: 62px
+		+media-breakpoint-up(lg)
+			padding-top: 40px
+			padding-bottom: 82px
+		+media-breakpoint-up(xl)
+			gap: 0px
+			flex-direction: row
+	&__link
+		position: relative
+		padding-left: 30px
+		transition: 0.5s
+		&>span
+			position: absolute
+			width: 18px
+			height: 18px
+			top: calc( 50% - 14px )
+			left: 0
+			&>svg
+				width: 100%
+				height: 100%
+				fill: $text
+				transition: 0.5s
+		&:hover
+			color: $accent
+			&>span>svg
+				fill: $accent
+	&__info
+		display: flex
+		gap: 12px
+		+media-breakpoint-up(xl)
+			justify-content: flex-end
+			flex-direction: column
+
+// footer-menu
+
+.footer-menu
+	list-style: none
+	margin: 0
+	padding: 0
+	display: flex
+	gap: 20px
+	width: 100%
+	justify-content: space-between
+	flex-direction: column
+	+media-breakpoint-up(sm)
+		align-items: center
+	+media-breakpoint-up(md)
+		flex-direction: row
+	+media-breakpoint-up(xl)
+		width: auto
+		gap: 60px
+	&__item
+	&__link
+		display: inline-block
+		position: relative
+		padding-right: 30px
+		transition: 0.5s
+		&>span
+			position: absolute
+			width: 18px
+			height: 18px
+			top: calc( 50% - 9px )
+			right: 0
+			transition: 0.5s
+			&>svg
+				fill: $text
+				width: 100%
+				height: 100%
+				transition: 0.5s
+		&:hover
+			color: $accent
+			&>span
+				transform: translate(10%, -10%)
+				&>svg
+					fill: $accent
