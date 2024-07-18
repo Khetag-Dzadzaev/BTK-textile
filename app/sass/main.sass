@@ -255,6 +255,15 @@ img
 		&:hover
 			color: $gray
 			text-decoration: none
+	&_white
+		color: #fff
+		&:hover
+			color: #fff
+			text-decoration: none
+	&_line
+		text-decoration: underline
+		&:hover
+			text-decoration: underline
 
 .menu
 	display: flex
@@ -704,3 +713,349 @@ img
 				transform: translate(10%, -10%)
 				&>svg
 					fill: $accent
+
+.contact
+	display: flex
+	margin: -13px
+	flex-direction: column
+	flex-wrap: wrap
+	+media-breakpoint-up(xl)
+		flex-direction: row
+	&__box
+		flex: 0 0 50%
+		width: 100%
+		padding: 13px
+		&_100
+			flex: 0 0 100%
+		&_carts
+			margin-top: -13px
+	&__map
+		width: 100%
+		overflow: hidden
+		height: 200px
+		+media-breakpoint-up(sm)
+			height: 300px
+		+media-breakpoint-up(md)
+			height: 400px
+		+media-breakpoint-up(xl)
+			height: 100%
+		&_contact
+			margin-top: 70px
+			+media-breakpoint-up(xl)
+				height: 500px
+	&__blocks
+		display: flex
+		flex-wrap: wrap
+		margin: -15px
+	&__block
+		flex: 0 0 100%
+		padding: 15px
+		+media-breakpoint-up(sm)
+			flex: 0 0 50%
+		&_100
+			flex: 0 0 100%
+			&>.contact__block-info
+				padding: 40px 56px
+				display: flex
+				align-items: flex-start
+				flex-direction: column
+				padding: 28px 32px
+				gap: 15px
+				+media-breakpoint-up(sm)
+					gap: 	0
+					justify-content: space-between
+					flex-direction: row
+					padding: 40px 56px
+					align-items: center
+				&_flex
+					flex-direction: column
+					align-items: flex-start
+		&_100-np
+			&>.contact__block-info
+				padding: 28px 32px
+		&_nf
+			&>.contact__block-info
+				display: block
+		&_np>.contact__block-info
+			padding: 28px 32px
+	&__block-info
+		background: #fff
+		height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		padding: 28px 32px
+		transition: 0.5s
+		&:hover
+			background-color: $accent
+			&>.contact__phone
+				&>.contact__before
+					fill: #fff
+			&>.contact__title
+				&>.contact__after_light
+					display: block
+				&>.contact__after_dark
+					display: none
+			&>.social__link_contact
+				border: 1px solid #fff
+			&>.button
+				&>span
+					color: #fff
+				&:hover
+					&>span
+						color: $accent
+			&>p,span,div,a
+				color: #fff
+				&>svg
+					border: #fff
+					fill: #fff
+	&__phone
+		padding-left: 30px
+		position: relative
+	&__before
+		position: absolute
+		top: calc( 50% - 9px )
+		left: 0
+		fill: $text
+		width: 18px
+		height: 18px
+	&__title
+		padding-right: 30px
+		position: relative
+		color: rgb(130, 130, 130)
+		&_contact-page
+			padding: 0
+			width: 100%
+	&__after
+		position: absolute
+		top: calc( 50% - 9px )
+		right: 0
+		fill: $text
+		width: 18px
+		height: 18px
+		&_light
+			display: none
+		&_dark
+			display: block
+	&__info
+		display: block
+		margin-top: 15px
+
+.form
+	padding: 30px
+	display: flex
+	position: relative
+	background-color: #fff
+	flex-wrap: wrap
+	margin: -12px
+	transition: 0.5s
+	&>.button
+		width: 100%
+	&__right
+		width: 100%
+	&__block
+		width: 100%
+		padding: 15px
+		flex: 0 0 100%
+		&_50
+			+media-breakpoint-up(md)
+				flex: 0 0 50%
+	&__input
+		position: relative
+		padding: 20px 24px
+		color: #fff
+		color: rgb(153, 161, 170)
+		font-family: Inter
+		font-size: 16px
+		font-weight: 500
+		line-height: 160%
+		letter-spacing: 0%
+		border: 1px solid rgb(153, 161, 170)
+		width: 100%
+		background-color: #fff
+		&::placeholder
+			color: rgb(192, 202, 214)
+		&_pf
+			&::placeholder
+				color: rgb(192, 202, 214)
+		&:focus
+			outline: none
+			border: 1px solid $accent
+		&_textarea
+			resize: none
+			height: auto
+			display: block
+			+media-breakpoint-up(wxp)
+				height: 100px
+		&_text
+			border: none
+			padding: 0
+			margin: 0
+			color: #ACA49C
+	&__checkbox-block
+		margin: 40px 0 30px
+		margin-left: 15px
+	&__checkbox
+		position: absolute
+		z-index: -1
+		opacity: 0
+	&__checkbox+.form__checkbox-text
+		display: inline-flex
+		align-items: center
+		user-select: none
+		cursor: pointer
+		&::before
+			content: ''
+			display: inline-block
+			width: 1em
+			height: 1em
+			flex-shrink: 0
+			flex-grow: 0
+			border: 1px solid rgb(153, 161, 170)
+			border-radius: 0.25em
+			margin-right: 0.5em
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: 50% 50%
+	&__checkbox:checked+.form__checkbox-text::before
+		border-color: $accent
+		background-color: $accent
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")
+	&__checkbox-text
+		&.error
+			&::before
+				border: 1px solid #da4c4c
+		&>span
+			color: #7E868E
+			font-family: Inter
+			font-weight: 500
+			font-size: 16px
+			font-style: normal
+			font-weight: 400
+			line-height: 134.09%
+			&>a
+				text-decoration: underline
+				color: rgb(255, 157, 130)
+
+.good
+	margin-top: 30px
+	background-color: #3fb53f
+	color: #fff
+	animation: fade .25s ease
+	display: block
+
+.false
+	list-style-type: none
+	margin-top: 30px
+	background-color: #da4c4c
+	color: #fff
+	animation: fade .25s ease
+	display: block
+
+.button-contact
+	border: none
+	padding: 16px 32px
+	font-family: Inter
+	font-size: 18px
+	font-weight: 500
+	line-height: 160%
+	letter-spacing: 0%
+	text-align: center
+	color: #fff
+	display: inline-block
+	transition: 0.3s
+	cursor: pointer
+	width: 100%
+	background-color: $accent
+	border: 1px solid $accent
+	transition: 0.5s
+	&:hover
+		background-color: #fff
+		color: $accent
+
+.social-link
+	position: relative
+	padding-left: 35px
+	&::before
+		content: ""
+		position: absolute
+		left: 0
+		top: 0
+		background-size: cover
+		width: 24px
+		height: 24px
+	&_email
+		&::before
+			background-image: url("../images/email.svg")
+	&_phone
+		&::before
+			background-image: url("../images/phone.svg")
+	&_dest
+		display: none
+		+media-breakpoint-up(lg)
+			display: inline
+	&_mob
+		display: inline
+		+media-breakpoint-up(lg)
+			display: none
+	&_tab
+		display: none
+		+media-breakpoint-up(md)
+			display: inline
+	&_mobile
+		display: inline
+		+media-breakpoint-up(md)
+			display: none
+	&_menu
+		font-size: 20px
+		+media-breakpoint-up(sm)
+			font-size: 18px
+	&_footer
+		font-size: 20px
+		+media-breakpoint-up(sm)
+			font-size: 18px
+
+.social
+	margin-top: 25px
+	display: flex
+	gap: 16px
+	&__svg
+		width: 18px
+		height: 18px
+		fill: $text
+	&__link
+		display: inline-block
+		line-height: 100%
+		padding: 6px
+		border: solid 1px $text
+		border-radius: 6px
+		transition: 0.5s
+		&_contact
+			padding: 12px 16px
+			color: rgb(0, 0, 0)
+			font-family: Inter
+			font-size: 16px
+			font-weight: 500
+			line-height: 120%
+			letter-spacing: 0%
+			display: flex
+			gap: 16px
+			&:hover
+				text-decoration: none
+	&__footer
+		margin-top: -24px
+		+media-breakpoint-up(lg)
+			width: 100%
+			justify-content: flex-end
+		&>.social__link
+			padding: 14px
+			&>svg
+				width: 24px
+				height: 24px
+				+media-breakpoint-up(sm)
+					width: 18px
+					height: 18px
+			&:hover
+				background: $accent
+				&>svg
+					fill: #fff
