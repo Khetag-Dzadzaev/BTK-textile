@@ -287,6 +287,11 @@ img
 		&:hover
 			text-decoration: underline
 
+.logo
+	width: 150px
+	+media-breakpoint-up(sm)
+		width: 100%
+
 .menu
 	display: flex
 	list-style: none
@@ -512,7 +517,7 @@ img
 			margin: 0 -25px
 		+media-breakpoint-up(wxp)
 			margin: 0 -65px
-		&>h1
+		&>.text
 			max-width: 680px
 			+media-breakpoint-up(lg)
 				max-width: 100%
@@ -520,6 +525,11 @@ img
 				flex: 0 0 55%
 			+media-breakpoint-up(wxp)
 				padding: 0 65px
+		&_single
+			margin: 0
+			&>.text
+				flex: 0 0 100%
+				padding: 0
 	&__text-button
 		+media-breakpoint-up(lg)
 			padding: 0 25px
@@ -581,14 +591,6 @@ img
 		padding-top: 40px
 	+media-breakpoint-up(md)
 		padding-top: 60px
-	&__box
-		padding: 10px 6.5px
-		flex: 0 0 100%
-		+media-breakpoint-up(sm)
-			flex: 0 0 50%
-			padding: 20px 12.5px
-		+media-breakpoint-up(md)
-			flex: 0 0 33.3333%
 	&__block
 		display: block
 		&_bg
@@ -624,14 +626,22 @@ img
 				height: 250px
 			+media-breakpoint-up(lg)
 				height: 305px
+	&__text
+		padding: 8px
+		width: 100%
+		margin-top: 4
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		justify-content: flex-start
+		+media-breakpoint-up(sm)
+			padding: 12px
+			margin-top: 12px
 	&__link
 		display: inline-block
-		margin-top: 16px
 		padding-right: 30px
 		position: relative
 		transition: 0.5s
-		+media-breakpoint-up(sm)
-			margin-top: 32px
 		&>span
 			display: block
 			width: 18px
@@ -649,7 +659,20 @@ img
 			color: $accent
 			&>span
 				transform: translate(10%, -10%)
-
+	&__box
+		padding: 10px 6.5px
+		flex: 0 0 100%
+		+media-breakpoint-up(sm)
+			flex: 0 0 50%
+			padding: 20px 12.5px
+		+media-breakpoint-up(md)
+			flex: 0 0 33.3333%
+		&_single
+			+media-breakpoint-up(lg)
+				flex: 0 0 25%
+				&>.product__block
+					&>.product__img
+						height: 200px
 // footer
 .footer
 	&__block
@@ -724,6 +747,9 @@ img
 		position: relative
 		padding-right: 30px
 		transition: 0.5s
+		width: 100%
+		+media-breakpoint-up(sm)
+			width: auto
 		&>span
 			position: absolute
 			width: 18px
@@ -743,6 +769,7 @@ img
 				&>svg
 					fill: $accent
 
+//contact
 .contact
 	display: flex
 	margin: -13px
@@ -981,9 +1008,9 @@ img
 
 .button-contact
 	border: none
-	padding: 16px 32px
+	padding: 12px 24px
 	font-family: Inter
-	font-size: 18px
+	font-size: 16px
 	font-weight: 500
 	line-height: 160%
 	letter-spacing: 0%
@@ -996,9 +1023,15 @@ img
 	background-color: $accent
 	border: 1px solid $accent
 	transition: 0.5s
+	+media-breakpoint-up(sm)
+		font-size: 18px
+		padding: 16px 32px
 	&:hover
 		background-color: #fff
 		color: $accent
+	&_button
+		padding: 12px 0
+		font-size: 15px
 
 .social
 	margin-top: 25px
@@ -1027,3 +1060,180 @@ img
 			gap: 16px
 			&:hover
 				text-decoration: none
+
+//single
+
+.product-info
+	display: flex
+	width: 100%
+	flex-direction: column
+	gap: 30px
+	+media-breakpoint-up(lg)
+		gap: 0
+		margin: 0 -30px
+		flex-direction: row
+		justify-content: center
+	&__box
+		width: 100%
+		+media-breakpoint-up(lg)
+			width: 50%
+			margin: 0
+			padding: 0 30px
+			height: 100%
+			+media-breakpoint-up(xl)
+				justify-content: flex-start
+				flex: 0 0 50%
+	&__row
+		display: flex
+		margin: -12px
+		flex-wrap: wrap
+	&__colum
+		flex: 0 0 100%
+		padding: 12px
+		display: flex
+		flex-direction: column
+		gap: 6px
+		+media-breakpoint-up(sm)
+			margin: 12px 0
+			flex: 0 0 33.3333%
+	&__text
+		color: rgb(153, 159, 174)
+	&__block
+		display: flex
+		flex-direction: column
+		gap: 0
+		+media-breakpoint-up(sm)
+			gap: 36px
+	&__cen-button
+		padding: 12px 0
+		+media-breakpoint-up(sm)
+			padding: 24px 0
+		&>p.text
+			display: flex
+			align-items: flex-end
+			gap: 4px
+			margin-bottom: 24px
+			+media-breakpoint-up(sm)
+				margin-bottom: 36px
+			+media-breakpoint-up(md)
+				margin-bottom: 48px
+			&>span
+				display: block
+				font-size: 20px
+				color: $text
+				font-weight: 700
+				margin-bottom: 2px
+				+media-breakpoint-up(sm)
+					font-size: 26px
+				+media-breakpoint-up(md)
+					font-size: 32px
+
+.gallery-container
+	position: relative
+	width: 100%
+	display: flex
+	justify-content: space-between
+	overflow: hidden
+	flex-direction: column
+	gap: 12px
+	+media-breakpoint-up(sm)
+		gap: 25px
+
+.gallery-main
+	width: 100%
+	height: 250px
+	+media-breakpoint-up(sm)
+		height: 415px
+	&>.swiper-wrapper
+		height: 100%
+		&>.swiper-slide
+			height: 100%
+
+.swiper-button-prev,
+.swiper-button-next
+	position: absolute
+	top: calc( 40% - 15px )
+	border: 1px solid var(--ffffff, #fff)
+	width: 40px
+	color: #fff
+	font-size: 20px
+	padding: 30px
+	z-index: 2
+
+.swiper-button-prev
+	border-right: 1px solid #e9e9e9
+	left: 10px
+	+media-breakpoint-up(sm)
+		left: 40px
+
+.swiper-button-next
+	right: 10px
+	+media-breakpoint-up(sm)
+		right: 40px
+
+.gallery-thumbs
+	display: flex
+	width: 100%
+	height: 75px
+	+media-breakpoint-up(sm)
+		height: 100px
+
+.gallery-thumbs .swiper-slide img
+	transition: 0.3s
+
+.gallery-thumbs .swiper-slide-active
+	opacity: 0.9
+
+.gallery-thumbs .swiper-slide-thumb-active
+	opacity: 1
+	border: 3px solid $accent
+
+.gallery-slider-button
+	border-radius: 100%
+	background-color: #fff
+	padding: 0
+	padding: 20px
+	&::after
+		color: $dark
+		margin-left: -4px
+		font-size: 14px
+		font-weight: 900
+	&_prev
+		&::after
+			margin-left: -4px
+	&_next
+		&::after
+			margin-right: -6px
+
+.product-img,.product-img-thums
+	height: 100%
+	width: 100%
+	object-fit: cover
+
+.back
+	display: inline-block
+	margin-top: 24px
+	position: relative
+	padding-left: 30px
+	transition: 0.5s
+	+media-breakpoint-up(sm)
+		margin-top: 36px
+	+media-breakpoint-up(md)
+		margin-top: 60px
+	&>span
+		padding: 12px
+		transform: rotateY(180deg)
+		top: 0
+		left: 0
+		width: 18px
+		height: 18px
+		position: absolute
+		transition: 0.5s
+		&>svg
+			transition: 0.5s
+	&:hover
+		color: $accent
+		&>span
+			transform: rotateY(180deg) translate(10%,-10%)
+			&>svg
+				fill: $accent
