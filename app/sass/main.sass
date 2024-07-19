@@ -63,13 +63,11 @@ img
 	display: flex
 	flex-wrap: wrap
 	font-size: 14px
-	line-height: 19px
+	line-height: 150%
 	position: relative
 	z-index: 1
 	padding: 0
 	position: relative
-	+media-breakpoint-up(sm)
-		font-size: 16px
 	&__link
 		color: rgb(117, 117, 137)
 		position: relative
@@ -89,7 +87,7 @@ img
 			position: absolute
 			width: 18px
 			height: 18px
-			top: calc( 50% - 9 )
+			bottom: 0
 			margin: 0 5px
 		&:hover
 			text-decoration: none
@@ -100,27 +98,32 @@ img
 
 .content
 	margin-bottom: 30px
+	font-family: Montserrat
 	&_m0
 		margin: 0
 	iframe
 		width: 100%
 		margin: 0 auto !important
 	p
-		font-size: 16px
+		color: rgb(46, 54, 62)
+		font-size: 14px
 		font-weight: 400
-		line-height: 24px
-		color: $text
-		margin: 0
+		line-height: 160%
+		letter-spacing: 0%
+		text-align: left
 		&:not(:last-child)
 			margin-bottom: 10px
 		+media-breakpoint-up(sm)
+			font-size: 16px
 			&:not(:last-child)
 				margin-bottom: 24px
 	b, strong
 		font-weight: 700
-		font-size: 17px
+		font-size: 15px
 		line-height: 24px
 		margin-bottom: 15px
+		+media-breakpoint-up(sm)
+			font-size: 17px
 	a
 		color: $accent
 		text-decoration: underline
@@ -138,12 +141,14 @@ img
 			font-size: 24px
 			line-height: 30px
 	h3
-		font-size: 19px
+		font-size: 17px
 		line-height: 25px
 		color: $text
 		font-weight: 600
 		margin-top: 40px
 		margin-bottom: 20px
+		+media-breakpoint-up(sm)
+			font-size: 19px
 	ol
 		padding: 0
 		padding-left: 17px
@@ -162,12 +167,14 @@ img
 		+media-breakpoint-up(sm)
 			margin-bottom: 25px
 		li
-			font-size: 16px
+			font-size: 14px
 			line-height: 24px
 			font-weight: 300
 			margin-bottom: 10px
 			position: relative
 			padding-left: 25px
+			+media-breakpoint-up(sm)
+				font-size: 16px
 			&:before
 				content: ''
 				position: absolute
