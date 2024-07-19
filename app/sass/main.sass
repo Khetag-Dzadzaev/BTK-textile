@@ -53,9 +53,9 @@ img
 	display: block
 
 .breadcrumb-block
-	padding: 20px 0
+	padding: 15px 0
 	+media-breakpoint-up(sm)
-		padding: 40px 0
+		padding: 25px 0
 
 .breadcrumb
 	margin: 0
@@ -71,17 +71,32 @@ img
 	+media-breakpoint-up(sm)
 		font-size: 16px
 	&__link
-		color: #A4A4A4
+		color: rgb(117, 117, 137)
+		position: relative
+		transition: 0.5s
+		padding-right: 30px
+		font-family: Mulish
+		font-size: 14px
+		font-weight: 400
+		line-height: 150%
+		letter-spacing: 0%
+		text-align: left
 		&:after
-			content: '|'
+			background-image: url("../images/arrow-right.svg")
+			content: ""
+			background-size: contain
+			background-position: center
+			position: absolute
+			width: 18px
+			height: 18px
+			top: calc( 50% - 9 )
 			margin: 0 5px
 		&:hover
 			text-decoration: none
-			color: #fff
+			color: $accent
 			&:after
-				color: #A4A4A4
 	&__item_active
-		color: #fff
+		color: rgb(0, 0, 0)
 
 .content
 	margin-bottom: 30px
@@ -471,6 +486,13 @@ img
 		padding-bottom: 0
 	&_pt
 		padding-top: 0
+	&_single
+		padding-top: 0
+		padding-bottom: 30px
+		+media-breakpoint-up(sm)
+			padding-bottom: 40px
+		+media-breakpoint-up(md)
+			padding-bottom: 60px
 	&__title
 		display: flex
 		flex-direction: column
@@ -863,8 +885,7 @@ img
 	&__input
 		position: relative
 		padding: 20px 24px
-		color: #fff
-		color: rgb(153, 161, 170)
+		color: $text
 		font-family: Inter
 		font-size: 16px
 		font-weight: 500
@@ -907,12 +928,11 @@ img
 		&::before
 			content: ''
 			display: inline-block
-			width: 1em
-			height: 1em
+			width: 26px
+			height: 26px
 			flex-shrink: 0
 			flex-grow: 0
 			border: 1px solid rgb(153, 161, 170)
-			border-radius: 0.25em
 			margin-right: 0.5em
 			background-repeat: no-repeat
 			background-position: center center
@@ -973,48 +993,6 @@ img
 		background-color: #fff
 		color: $accent
 
-.social-link
-	position: relative
-	padding-left: 35px
-	&::before
-		content: ""
-		position: absolute
-		left: 0
-		top: 0
-		background-size: cover
-		width: 24px
-		height: 24px
-	&_email
-		&::before
-			background-image: url("../images/email.svg")
-	&_phone
-		&::before
-			background-image: url("../images/phone.svg")
-	&_dest
-		display: none
-		+media-breakpoint-up(lg)
-			display: inline
-	&_mob
-		display: inline
-		+media-breakpoint-up(lg)
-			display: none
-	&_tab
-		display: none
-		+media-breakpoint-up(md)
-			display: inline
-	&_mobile
-		display: inline
-		+media-breakpoint-up(md)
-			display: none
-	&_menu
-		font-size: 20px
-		+media-breakpoint-up(sm)
-			font-size: 18px
-	&_footer
-		font-size: 20px
-		+media-breakpoint-up(sm)
-			font-size: 18px
-
 .social
 	margin-top: 25px
 	display: flex
@@ -1042,20 +1020,3 @@ img
 			gap: 16px
 			&:hover
 				text-decoration: none
-	&__footer
-		margin-top: -24px
-		+media-breakpoint-up(lg)
-			width: 100%
-			justify-content: flex-end
-		&>.social__link
-			padding: 14px
-			&>svg
-				width: 24px
-				height: 24px
-				+media-breakpoint-up(sm)
-					width: 18px
-					height: 18px
-			&:hover
-				background: $accent
-				&>svg
-					fill: #fff
