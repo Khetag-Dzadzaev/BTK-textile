@@ -591,6 +591,8 @@ img
 		padding-top: 40px
 	+media-breakpoint-up(md)
 		padding-top: 60px
+	&_archive
+		padding-top: 0
 	&__block
 		display: block
 		&_bg
@@ -1237,3 +1239,239 @@ img
 			transform: rotateY(180deg) translate(10%,-10%)
 			&>svg
 				fill: $accent
+
+.archive
+	+media-breakpoint-up(md)
+		display: flex
+		margin: 0 -12px
+		align-items: flex-start
+	&>.filter-crest
+		width: 24px
+		height: 24px
+		object-fit: contain
+		object-position: center
+		position: fixed
+		top: 20px
+		z-index: -2
+		right: 20px
+		opacity: 0
+		cursor: pointer
+		transition: 0.5s
+		&.active
+			opacity: 1
+			z-index: 4
+		+media-breakpoint-up(md)
+			display: none
+	&>.filter-button
+		margin-bottom: 20px
+		position: relative
+		padding-right: 30px
+		cursor: pointer
+		display: inline-block
+		&::before
+			content: ""
+			position: absolute
+			width: 18px
+			height: 18px
+			top: calc( 50% - 9px )
+			right: 0
+			background-image: url(../images/filter.png)
+			background-size: cover
+		+media-breakpoint-up(md)
+			display: none
+	&__filter
+		padding: 0 12px
+		min-width: 310px
+		position: fixed
+		width: 100%
+		background-color: #fff
+		z-index: 3
+		overflow-y: scroll
+		top: 0
+		left: 0
+		height: 100%
+		transition: 0.5s
+		transform: translateY(-100%)
+		opacity: 0
+		&.active
+			opacity: 1
+			transform: translateY(0%)
+		+media-breakpoint-up(md)
+			height: auto
+			transform: translateY(0%)
+			overflow-y: auto
+			background-color: transparent
+			position: static
+			display: block
+			opacity: 1
+	&>.product_archive
+		&>.product__box
+			flex: 0 0 100%
+			+media-breakpoint-up(sm)
+				flex: 0 0 50%
+			+media-breakpoint-up(xl)
+				flex: 0 0 33.3333%
+		+media-breakpoint-up(md)
+			padding: 0 12px
+	&__taxsanomi
+		width: 100%
+		background-color: #fff
+		padding: 24px 12px
+		display: flex
+		flex-direction: column
+		padding-bottom: 0
+		+media-breakpoint-up(md)
+			padding-bottom: 24px
+	&__taxsanomi-item
+		display: inline-block
+		position: relative
+		transition: 0.5s
+		padding: 12px 0
+		width: fit-content
+		padding-right: 30px
+		+media-breakpoint-up(md)
+			width: 100%
+		&::before
+			position: absolute
+			width: 100%
+			height: 1px
+			content: ""
+			bottom: 0
+			left: 0
+			background-color: rgb(238, 244, 247)
+		&:last-child
+			&::before
+				display: none
+		&>span
+			position: absolute
+			width: 18px
+			height: 18px
+			display: inline-block
+			top: calc( 50% - 5 )
+			right: 0
+			&>svg
+				width: 100%
+				height: 100%
+				transition: 0.5s
+				fill: $text
+		&:hover
+			color: $accent
+			&>span
+				&>svg
+					fill: $accent
+					transform: translate(10%,-10%)
+	&__filter-block
+		width: 100%
+		background-color: #fff
+		padding: 24px 12px
+	&__filter-bottom
+		display: flex
+		flex-direction: column
+		gap: 10px
+		+media-breakpoint-up(md)
+			margin-top: 60px
+	&__button
+		min-width: 100%
+		text-align: center
+		border: 1px solid $text
+		padding: 12px 0
+		width: 100%
+		background-color: #fff
+		color: $text
+		cursor: pointer
+		transition: 0.5s
+		&:hover
+			background-color: $accent
+			color: #fff
+			border: 1px solid #fff
+	&__filter-box
+		padding: 24px 0
+		display: flex
+		gap: 24px
+		flex-direction: column
+	&__filter-title
+		color: rgb(117, 117, 137)
+		padding-bottom: 12px
+		position: relative
+		&::before
+			position: absolute
+			width: 100%
+			height: 1px
+			content: ""
+			bottom: 0
+			left: 0
+			background-color: rgb(238, 244, 247)
+		&:hover
+			color: rgb(117, 117, 137)
+	&__filter-checkbox
+		position: relative
+		transition: 0.5s
+		cursor: pointer
+		&>input
+			position: absolute
+			z-index: -1
+			opacity: 0
+			transition: 0.5s
+			&:not(:disabled):active+span::before
+				border: 1px solid $accent
+			&:focus+span::before
+				border: 1px solid $accent
+			&:focus:not(:checked)+span::before
+				border-color: rgb(82, 82, 96)
+			&:checked+span::before
+				border-color: $accent
+				background-color: #fff
+				background-image: url("../images/Checkmark.svg")
+				background-size: contain
+				background-position: center
+			&:disabled+span::before
+				background-color: rgb(82, 82, 96)
+		&>span
+			transition: 0.5s
+			display: inline-flex
+			align-items: center
+			user-select: none
+			position: relative
+			padding-left: 36px
+			&::before
+				position: absolute
+				left: 0
+				top: calc( 50% - 12px )
+				transition: 0.3s
+				content: ""
+				display: inline-block
+				width: 24px
+				height: 24px
+				border: 1px solid rgb(82, 82, 96)
+				background: rgb(82, 82, 96)
+
+.noUi-handle
+	cursor: pointer
+	max-width: 18px
+	max-height: 18px
+	border-radius: 100%
+	&>.noUi-touch-area
+		border-radius: 100%
+		background-color: $text
+	&::before
+		display: none
+		opacity: 0
+	&::after
+		display: none
+		opacity: 0
+
+.noUi-ltr
+	border-radius: 0
+	background: rgb(153, 159, 174)
+	box-shadow: none
+	margin-right: 20px
+
+.noUi-horizontal
+	max-height: 7px
+
+.noUi-connect
+	max-height: 18px
+	background-color: $text
+
+.output
+	margin-bottom: 18px

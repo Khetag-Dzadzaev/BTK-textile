@@ -31,8 +31,14 @@ if (window.innerWidth <= 992) {
 let burger = document.querySelector(".burger");
 if (burger) {
 	burger.addEventListener("click", function () {
-		this.classList.toggle("active");
-		document.querySelector(".menu").classList.toggle("active");
+		if (window.matchMedia("(max-width: 576px)").matches) {
+			this.classList.toggle("active");
+			document.querySelector(".menu").classList.toggle("active");
+			document.querySelector(".body").classList.toggle("noscroll");
+		} else {
+			this.classList.toggle("active");
+			document.querySelector(".menu").classList.toggle("active");
+		}
 	})
 }
 
@@ -92,3 +98,42 @@ galleryMain.on('slideChangeTransitionStart', function () {
 galleryThumbs.on('transitionStart', function () {
 	galleryMain.slideTo(galleryThumbs.activeIndex);
 });
+
+const slider = document.getElementById('slider');
+const amount = document.getElementById('amount');
+console.log(amount);
+
+
+noUiSlider.create(slider, {
+	start: [0, 150], // Начальные значения
+	connect: true,
+	range: {
+		'min': 0,
+		'max': 150
+	}
+});
+
+slider.noUiSlider.on('update', function (values) {
+	amount.innerHTML = "от <strong>" + Math.round(values[0]) + 'г/м2</strong> -  до <strong>' + Math.round(values[1]) + 'г/м2</strong>';
+});
+
+let filterButton = document.querySelector(".filter-button");
+let filterCrest = document.querySelector(".filter-crest");
+
+if (filterButton) {
+	filterButton.addEventListener("click", function () {
+
+		document.querySelector(".archive__filter").classList.add("active");
+		document.querySelector(".body").classList.toggle("noscroll");
+		filterCrest.classList.add("active");
+
+	})
+}
+
+if (filterCrest) {
+	filterCrest.addEventListener("click", function () {
+		this.classList.remove("active");
+		document.querySelector(".archive__filter").classList.remove("active");
+		document.querySelector(".body").classList.remove("noscroll");
+	})
+}
