@@ -1297,6 +1297,8 @@ img
 			opacity: 1
 			transform: translateY(0%)
 		+media-breakpoint-up(md)
+			min-width: 310px
+			max-width: 310px
 			height: auto
 			transform: translateY(0%)
 			overflow-y: auto
@@ -1475,3 +1477,69 @@ img
 
 .output
 	margin-bottom: 18px
+
+.modal
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100vh
+	z-index: -2
+	opacity: 0
+	transform: translateY(-100%)
+	transition: 0.5s
+	&.active
+		z-index: 4
+		transform: translateY(0%)
+		opacity: 1
+	&::before
+		content: ""
+		width: 100%
+		height: 100%
+		background-color: #000
+		position: absolute
+		top: 0
+		left: 0
+		opacity: 0.7
+	&__box
+		width: 100%
+		height: 100vh
+		display: flex
+		align-items: center
+		overflow-y: scroll
+		justify-content: center
+	&__block
+		padding: 24px 12px
+		position: relative
+		width: 100%
+		height: 100%
+		background-color: #fff
+		overflow-y: scroll
+		+media-breakpoint-up(sm)
+			height: auto
+			padding: 36px 18px
+		+media-breakpoint-up(md)
+			overflow: auto
+			padding: 48px 24px
+			width: 640px
+		&>.form
+			padding: 5px
+			+media-breakpoint-up(sm)
+			padding: 20px
+			+media-breakpoint-up(md)
+				padding: 30px
+	&__crest
+		width: 40px
+		height: 40px
+		object-fit: contain
+		object-position: center
+		position: absolute
+		top: 10px
+		right: 10px
+		z-index: 2
+		cursor: pointer
+		+media-breakpoint-up(md)
+			top: 20px
+			right: 20px
+			width: auto
+			height: auto

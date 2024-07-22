@@ -321,6 +321,27 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+
+	const slider = document.getElementById('slider');
+	const amount = document.getElementById('amount');
+	console.log(amount);
+
+
+	noUiSlider.create(slider, {
+		start: [0, 150], // Начальные значения
+		connect: true,
+		range: {
+			'min': 0,
+			'max': 150
+		}
+	});
+
+	slider.noUiSlider.on('update', function (values) {
+		amount.innerHTML = "от <strong>" + Math.round(values[0]) + 'г/м2</strong> -  до <strong>' + Math.round(values[1]) + 'г/м2</strong>';
+	});
+
+	</script>
 	<script src="js/app.min.js"></script>
 </body>
 
