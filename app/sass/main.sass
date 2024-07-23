@@ -1244,7 +1244,6 @@ img
 	+media-breakpoint-up(md)
 		display: flex
 		margin: 0 -12px
-		align-items: flex-start
 	&>.filter-crest
 		width: 24px
 		height: 24px
@@ -1306,15 +1305,19 @@ img
 			position: static
 			display: block
 			opacity: 1
-	&>.product_archive
-		&>.product__box
-			flex: 0 0 100%
-			+media-breakpoint-up(sm)
-				flex: 0 0 50%
-			+media-breakpoint-up(xl)
-				flex: 0 0 33.3333%
-		+media-breakpoint-up(md)
-			padding: 0 12px
+	&__product
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		&>.product_archive
+			&>.product__box
+				flex: 0 0 100%
+				+media-breakpoint-up(sm)
+					flex: 0 0 50%
+				+media-breakpoint-up(xl)
+					flex: 0 0 33.3333%
+			+media-breakpoint-up(md)
+				padding: 0 12px
 	&__taxsanomi
 		width: 100%
 		background-color: #fff
@@ -1524,11 +1527,17 @@ img
 			padding: 48px 24px
 			width: 640px
 		&>.form
+			margin: -15px
 			padding: 5px
 			+media-breakpoint-up(sm)
 			padding: 20px
 			+media-breakpoint-up(md)
 				padding: 30px
+			&>.text
+				padding: 15px
+				margin-bottom: 15px
+				+media-breakpoint-up(md)
+					margin-bottom: 30px
 	&__crest
 		width: 40px
 		height: 40px
@@ -1544,3 +1553,65 @@ img
 			right: 20px
 			width: auto
 			height: auto
+
+.dop-buttons
+	margin-top: 50px
+	display: flex
+	gap: 20px
+	padding: 0 12px
+	flex-direction: column
+	+media-breakpoint-up(sm)
+		max-height: 42px
+		align-items: center
+		flex-direction: row
+		gap: 54px
+
+.button-ajax
+	padding: 9px
+	width: 100%
+	text-align: center
+	border: 1px solid rgb(0, 0, 0)
+	display: inline-block
+	transition: 0.5s
+	+media-breakpoint-up(sm)
+		width: 300px
+	&:hover
+		background-color: $accent
+		border: 1px solid $accent
+		color: #fff
+
+.pagination
+	list-style: none
+	padding: 0
+	margin: 0
+	display: flex
+	gap: 12px
+	&__item
+		&_active
+			&>.pagination__link
+				border: 1px solid $text
+				cursor: default
+				&:hover
+					background-color: transparent
+					border: 1px solid $text
+					color: $text
+	&__link
+		cursor: pointer
+		width: 42px
+		height: 100%
+		padding: 9px 0
+		display: inline-block
+		border: 1px solid #c7c7d5
+		color: $text
+		font-family: Montserrat
+		font-size: 16px
+		font-weight: 400
+		line-height: 24px
+		letter-spacing: 0%
+		text-align: center
+		transition: 0.5s
+		&:hover
+			color: #fff
+			text-decoration: none
+			border: 1px solid $accent
+			background-color: $accent
