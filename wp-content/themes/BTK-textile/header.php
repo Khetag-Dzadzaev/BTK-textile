@@ -32,7 +32,7 @@
 				</ul>
 				<div class="header__right">
 					<div class="callback">
-						<p class="text text_fw600 text_lh160 text_nano text_textUp">обратная связь</p>
+						<p class="text text_fw600 text_lh160 text_nano text_textUp">заказать образцы</p>
 						<div class="callback__svg">
 							<svg>
 								<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#mesege"></use>

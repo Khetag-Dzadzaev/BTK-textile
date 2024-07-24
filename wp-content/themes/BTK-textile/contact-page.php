@@ -14,7 +14,7 @@
 	<section class="section section_pt">
 		<div class="container">
 			<div class="contact">
-				<div class="contact__box">
+				<div class="contact__box contact__box_carts">
 					<div class="contact__blocks">
 						<div class="contact__block contact__block_100 contact__block_100-np">
 							<div class="contact__block-info">
@@ -87,7 +87,7 @@
 							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf" placeholder="Название компании">
+							<input name="" type="text" class="form__input form__input_pf" placeholder="Город или Область">
 						</div>
 						<div class="form__block form__block_50">
 							<input name="" type="text" class="form__input form__input_pf " placeholder="Телефон">

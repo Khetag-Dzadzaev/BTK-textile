@@ -47,8 +47,11 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Plus.svg" alt="moda-crest" class="modal__crest">
 					<form class="form" action="">
 						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
-						<div class="form__block">
+						<div class="form__block  form__block_50">
 							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
+						</div>
+						<div class="form__block  form__block_50">
+							<input name="" type="text" class="form__input form__input_pf" placeholder="Город или Область">
 						</div>
 
 						<div class="form__block form__block_50">
