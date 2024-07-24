@@ -5,13 +5,10 @@
 		<div class="container">
 			<div class="breadcrumb-block">
 				<ul class="breadcrumb">
-					<li class="breadcrumb__item">
-						<a href="#" class="breadcrumb__link">Главная</a>
-					</li>
-					<li class="breadcrumb__item breadcrumb__item_active">Контакты</li>
+					<?php bcn_display(); ?>
 				</ul>
 			</div>
-			<h1 class="text text__title-mid text_drak text_fw700">Контакты</h1>
+			<h1 class="text text__title-mid text_drak text_fw700"><?php the_title(); ?></h1>
 		</div>
 	</section>
 	<section class="section section_pt">
