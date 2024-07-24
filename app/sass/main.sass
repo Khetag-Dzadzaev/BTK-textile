@@ -700,6 +700,7 @@ img
 			padding-top: 40px
 			padding-bottom: 82px
 		+media-breakpoint-up(xl)
+			align-items: flex-start
 			gap: 0px
 			flex-direction: row
 	&__link
@@ -722,11 +723,24 @@ img
 			&>span>svg
 				fill: $accent
 	&__info
+		margin-top: 30px
 		display: flex
 		gap: 12px
+		flex-wrap: wrap
+		align-items: center
+		width: 100%
+		justify-content: space-between
+		align-items: flex-end
+		+media-breakpoint-up(md)
 		+media-breakpoint-up(xl)
+			width: auto
+			margin: 0
 			justify-content: flex-end
 			flex-direction: column
+	&__info-block
+		display: flex
+		flex-direction: column
+		gap: 12px
 
 // footer-menu
 
@@ -1618,3 +1632,7 @@ img
 			text-decoration: none
 			border: 1px solid $accent
 			background-color: $accent
+
+.abeta
+	filter: brightness(0)
+	margin-bottom: 4px
