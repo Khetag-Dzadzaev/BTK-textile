@@ -9,75 +9,29 @@ $kategori = get_terms("categori");
 					<?php bcn_display(); ?>
 				</ul>
 			</div>
-			<h1 class="text text__title-mid text_drak text_fw700"><?php the_title(); ?></h1>
+			<h1 class="text text__title-mid text_drak text_fw700">Каталог тканей</h1>
 		</div>
 	</section>
 	<section class="section section_pt">
 		<div class="container">
 			<div class="archive">
 				<div class="archive__filter">
-					<div class="archive__taxsanomi">
-						<?php foreach ($kategori as  $value) {
-							$kategori_link = get_term_link($value->{'term_id'}, 'categori');
-						?>
-							<a href="<?php echo $kategori_link; ?>" class="archive__taxsanomi-item  text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->{'name'} ?><span>
-									<svg class="">
-										<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
-									</svg>
-								</span></a>
-
-						<?php } ?>
-
-					</div>
-					<div class="archive__filter-bottom">
-						<div class="archive__filter-block">
-							<div class="archive__filter-box">
-								<p class="archive__filter-title text text_mid text_fw600 text_lh150 text_textUp">Свойства</p>
-								<label class="archive__filter-checkbox text text_lh150 text_mini">
-									<input type="checkbox">
-									<span>Антибактериальная</span>
-								</label>
-								<label class="archive__filter-checkbox text text_lh150 text_mini">
-									<input type="checkbox">
-									<span>Антибактериальная</span>
-								</label>
-								<label class="archive__filter-checkbox text text_lh150 text_mini">
-									<input type="checkbox">
-									<span>Антибактериальная</span>
-								</label>
-								<label class="archive__filter-checkbox text text_lh150 text_mini">
-									<input type="checkbox">
-									<span>Антибактериальная</span>
-								</label>
-							</div>
-							<div class="archive__filter-box">
-								<p class="archive__filter-title text text_mid text_fw600 text_lh150 text_textUp">Переплетение</p>
-								<label class="archive__filter-checkbox text text_lh150 text_mini">
-									<input type="checkbox">
-									<span>Саржевое</span>
-								</label>
-								<label class="archive__filter-checkbox text text_lh150 text_mini">
-									<input type="checkbox">
-									<span>Полотняное</span>
-								</label>
-							</div>
-							<div class="archive__filter-box">
-								<p class="archive__filter-title text text_mid text_fw600 text_lh150 text_textUp">плотность</p>
-								<div class="archive__calc">
-									<div class="output text text_mini text_fw500 text_lh150" id="amount">от <strong>0г/м2</strong> -
-										до
-										<strong>140г/м2</strong>
-									</div>
-									<div id="slider"></div>
-								</div>
-							</div>
+					<?php if (!empty($kategori)) { ?>
+						<div class="archive__taxsanomi">
+							<?php foreach ($kategori as  $value) {
+								$kategori_link = get_term_link($value->{'term_id'}, 'categori');
+							?>
+								<a href="<?php echo $kategori_link; ?>" class="archive__taxsanomi-item  text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->{'name'} ?><span>
+										<svg class="">
+											<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
+										</svg>
+									</span></a>
+							<?php } ?>
 						</div>
-						<div class="archive__filter-block">
-							<div class="archive__button">Показать</div>
-						</div>
-					</div>
+					<?php	} ?>
+					<?php echo	get_template_part('template_parts/filterCatalog'); ?>
 				</div>
-				<img src="./images/cross.png" alt="charset" class="filter-crest">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/cross.png" alt="charset" class="filter-crest">
 				<div class="filter-button">
 					<p class="text text_mid text_lh150 text_fw500">Фильтры</p>
 				</div>
