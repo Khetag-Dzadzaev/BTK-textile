@@ -723,7 +723,7 @@ img
 			&>span>svg
 				fill: $accent
 	&__info
-		margin-top: 30px
+		margin-top: 20px
 		display: flex
 		gap: 12px
 		flex-wrap: wrap
@@ -731,7 +731,8 @@ img
 		width: 100%
 		justify-content: space-between
 		align-items: flex-end
-		+media-breakpoint-up(md)
+		+media-breakpoint-up(sm)
+			margin-top: 30px
 		+media-breakpoint-up(xl)
 			width: auto
 			margin: 0
@@ -1323,9 +1324,12 @@ img
 			display: block
 			opacity: 1
 	&__product
+		width: 100%
 		display: flex
 		flex-direction: column
 		justify-content: space-between
+		+media-breakpoint-up(md)
+			flex: 0 0 76%
 		&>.product_archive
 			&>.product__box
 				flex: 0 0 100%
@@ -1392,6 +1396,8 @@ img
 		gap: 10px
 		+media-breakpoint-up(md)
 			margin-top: 60px
+		&_mt0
+			margin-top: 0
 	&__button
 		min-width: 100%
 		text-align: center
@@ -1636,3 +1642,6 @@ img
 .abeta
 	filter: brightness(0)
 	margin-bottom: 4px
+
+.min-max
+	display: none
