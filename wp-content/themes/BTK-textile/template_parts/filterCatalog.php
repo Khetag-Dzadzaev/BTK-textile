@@ -1,7 +1,11 @@
 <?php global $god; ?>
-<form action="/catalog-tkani/" method="GET" class="archive__filter-bottom <?php if (isset($god)) {
-																																						echo ("archive__filter-bottom_mt0");
-																																					} ?>">
+<form action="<?php if (isset($god)) { ?>
+									/categori/vedomstvennye-tkani/
+						<?php	} else { ?>
+	/catalog-tkani/
+							<?php } ?>" method="GET" class="archive__filter-bottom <?php if (isset($god)) {
+																																				echo ("archive__filter-bottom_mt0");
+																																			} ?>">
 	<div class="archive__filter-block">
 		<div class="archive__filter-box">
 			<p class="archive__filter-title text text_mid text_fw600 text_lh150 text_textUp">Свойства</p>
@@ -151,20 +155,3 @@
 		<button class="archive__button">Показать</button>
 	</div>
 </form>
-
-<!-- <script>
-	(async () => {
-		const formData = new FormData();
-
-		formData.append('action', 'filter');
-
-		const response = await fetch('/wp-admin/admin-ajax.php', {
-			method: 'POST',
-			body: formData
-		});
-
-		const data = await response.text();
-
-		console.log(data)
-	})();
-</script> -->
