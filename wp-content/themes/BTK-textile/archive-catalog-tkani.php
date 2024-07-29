@@ -1,5 +1,5 @@
 <?php get_header();
-$kategori = get_terms("categori");
+$kategori = get_terms("kategorii");
 ?>
 <main class="main">
 	<section class="section section_single">
@@ -19,7 +19,7 @@ $kategori = get_terms("categori");
 					<?php if (!empty($kategori)) { ?>
 						<div class="archive__taxsanomi">
 							<?php foreach ($kategori as  $value) {
-								$kategori_link = get_term_link($value->{'term_id'}, 'categori');
+								$kategori_link = get_term_link($value->{'term_id'}, 'kategorii');
 							?>
 								<a href="<?php echo $kategori_link; ?>" class="archive__taxsanomi-item  text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->{'name'} ?><span>
 										<svg class="">

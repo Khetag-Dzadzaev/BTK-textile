@@ -1,6 +1,5 @@
 <?php get_header();
-$kategori = get_the_terms(get_the_ID(), "categori");
-
+$kategori = get_the_terms(get_the_ID(), "kategorii");
 ?>
 <main class="main">
 	<section class="section section_single">
@@ -80,7 +79,7 @@ $kategori = get_the_terms(get_the_ID(), "categori");
 					</div>
 				</div>
 			</div>
-			<a href="/" class="back text text_nano text_fw500 text_lh160 text_textUp"><span>
+			<a href="/catalog-tkani" class="back text text_nano text_fw500 text_lh160 text_textUp"><span>
 					<svg class="contact__before">
 						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
 					</svg>
@@ -90,7 +89,8 @@ $kategori = get_the_terms(get_the_ID(), "categori");
 	<?php
 	$query = new WP_Query([
 		'post_type' => 'catalog-tkani',
-		'posts_per_page' => 6
+		'posts_per_page' => 6,
+		'post__not_in' => array(get_the_ID()),
 	]);
 	if ($query->have_posts()) {
 	?>
@@ -112,74 +112,40 @@ $kategori = get_the_terms(get_the_ID(), "categori");
 			</div>
 		</section>
 	<?php } ?>
-	<!-- <section class="section section_pt">
-		<div class="container">
-			<div class="section__title section__title_single">
-				<h2 class="text text_lh150 text__title-mid text_fw700 text_dark">Ранее смотрели</h2>
-			</div>
-			<div class="product product_single">
-				<div class="product__box product__box_single">
-					<a href="/" class="product__block">
-						<img src="./images/dest/product.png" alt="product" class="product__img">
-						<div class="product__text">
-							<p class="product__link text text_nano text_fw500 text_lh160 text_textUp">ШерстянЫЕ ТКАНИ
-								<span>
-									<svg class="contact__before">
-										<use xlink:href="/images/sprite.svg#arrow-link"></use>
-									</svg>
-								</span>
-							</p>
-							<p class="text text_gray text_mid text_lh133 text_fw700">30 ₽ / м2</p>
+	<?php
+	if (isset($_COOKIE['catalogTkaniViewed'])) {
+		$viewedPosts = array_map('intval', explode(",", $_COOKIE['catalogTkaniViewed']));
+		$viewedPosts = array_filter($viewedPosts, function ($id) {
+			return $id != get_the_ID();
+		});
+		if (!empty($viewedPosts)) {
+
+			$query = new WP_Query([
+				'post__in' => $viewedPosts,
+				'orderby' => 'post__in',
+				'posts_per_page' => 4,
+				'post_type' => 'catalog-tkani',
+			]);
+
+			if ($query->have_posts()) { ?>
+				<section class="section section_pt">
+					<div class="container">
+						<div class="section__title section__title_single">
+							<h2 class="text text_lh150 text__title-mid text_fw700 text_dark">Ранее смотрели</h2>
 						</div>
-					</a>
-				</div>
-				<div class="product__box product__box_single">
-					<a href="/" class="product__block">
-						<img src="./images/dest/product.png" alt="product" class="product__img">
-						<div class="product__text">
-							<p class="product__link text text_nano text_fw500 text_lh160 text_textUp">ШерстянЫЕ ТКАНИ
-								<span>
-									<svg class="contact__before">
-										<use xlink:href="/images/sprite.svg#arrow-link"></use>
-									</svg>
-								</span>
-							</p>
-							<p class="text text_gray text_mid text_lh133 text_fw700">30 ₽ / м2</p>
+						<div class="product product_single">
+							<?php
+							while ($query->have_posts()) {
+								$query->the_post(); ?>
+								<div class="product__box product__box_single">
+									<?php echo	get_template_part('template_parts/tkani-single'); ?>
+								</div>
+							<?php } ?>
 						</div>
-					</a>
-				</div>
-				<div class="product__box product__box_single">
-					<a href="/" class="product__block">
-						<img src="./images/dest/product.png" alt="product" class="product__img">
-						<div class="product__text">
-							<p class="product__link text text_nano text_fw500 text_lh160 text_textUp">ШерстянЫЕ ТКАНИ
-								<span>
-									<svg class="contact__before">
-										<use xlink:href="/images/sprite.svg#arrow-link"></use>
-									</svg>
-								</span>
-							</p>
-							<p class="text text_gray text_mid text_lh133 text_fw700">30 ₽ / м2</p>
-						</div>
-					</a>
-				</div>
-				<div class="product__box product__box_single">
-					<a href="/" class="product__block">
-						<img src="./images/dest/product.png" alt="product" class="product__img">
-						<div class="product__text">
-							<p class="product__link text text_nano text_fw500 text_lh160 text_textUp">ШерстянЫЕ ТКАНИ
-								<span>
-									<svg class="contact__before">
-										<use xlink:href="/images/sprite.svg#arrow-link"></use>
-									</svg>
-								</span>
-							</p>
-							<p class="text text_gray text_mid text_lh133 text_fw700">30 ₽ / м2</p>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section> -->
+					</div>
+				</section>
+	<?php }
+		}
+	} ?>
 </main>
 <?php get_footer(); ?>

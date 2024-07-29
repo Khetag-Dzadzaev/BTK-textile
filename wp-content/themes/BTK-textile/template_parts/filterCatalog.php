@@ -1,6 +1,8 @@
-<?php global $god; ?>
+<?php global $god;
+global $qo;
+?>
 <form action="<?php if (isset($god)) { ?>
-									/categori/vedomstvennye-tkani/
+									/kategorii/<?php echo $qo->slug ?>
 						<?php	} else { ?>
 	/catalog-tkani/
 							<?php } ?>" method="GET" class="archive__filter-bottom <?php if (isset($god)) {

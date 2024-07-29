@@ -1,5 +1,5 @@
 <?php
-$thumbnail_url = get_the_post_thumbnail_url();
+$thumbnail_url = get_the_post_thumbnail_url() ?: get_template_directory_uri() . '/assets/images/dest/product.png';
 ?>
 
 <a href="<?php the_permalink(); ?>" class="product__block">
