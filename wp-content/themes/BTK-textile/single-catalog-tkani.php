@@ -140,7 +140,9 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 								<div class="product__box product__box_single">
 									<?php echo	get_template_part('template_parts/tkani-single'); ?>
 								</div>
-							<?php } ?>
+							<?php }
+							wp_reset_query();
+							wp_reset_postdata(); ?>
 						</div>
 					</div>
 				</section>

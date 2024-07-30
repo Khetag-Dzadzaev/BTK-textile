@@ -145,6 +145,7 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 							<?php }
 							wp_reset_query();
 							wp_reset_postdata();
+
 							?>
 						</div>
 					</div>
