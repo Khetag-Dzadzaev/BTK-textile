@@ -137,6 +137,77 @@ function wpse176347_pre_get_posts($query)
 			$query->set('meta_query', $args['meta_query']);
 		}
 	}
+	if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive("finished-product")) {
+		$args['meta_query'] = array('relation' => 'AND'); // Общая связь - AND
+
+		// Обработка 'amount-input'
+		if (!empty($_GET["Cenamount-input"])) {
+			$amount_query = array();
+
+			if (strpos($_GET["Cenamount-input"], '-') !== false) {
+				$price_arr = explode('-', $_GET["Cenamount-input"]);
+
+				$amount_query[] = array(
+					'key'     => 'czena',
+					'value'   => $price_arr[0],
+					'compare' => '>=',
+					'type'    => 'NUMERIC',
+				);
+
+				$amount_query[] = array(
+					'key'     => 'czena',
+					'value'   => $price_arr[1],
+					'compare' => '<=',
+					'type'    => 'NUMERIC',
+				);
+			} else {
+				$amount_query[] = array(
+					'key'     => 'czena',
+					'value'   => sanitize_text_field($_GET["Cenamount-input"]),
+					'compare' => '=',
+					'type'    => 'NUMERIC',
+				);
+			}
+
+			if (!empty($amount_query)) {
+				$args['meta_query'][] = array(
+					'relation' => 'AND',
+					$amount_query // Добавляем условие для Cenamount-input
+				);
+			}
+		}
+
+		// Обработка 'svoistva'
+		if (!empty($_GET["svoistva"]) && is_array($_GET["svoistva"])) {
+			$svoistva_query = array('relation' => 'OR');
+			foreach ($_GET["svoistva"] as $value) {
+				$svoistva_query[] = array(
+					'key'     => 'svojstvo',
+					'value'   => sanitize_text_field($value),
+					'compare' => 'LIKE',
+				);
+			}
+			$args['meta_query'][] = $svoistva_query; // Добавляем к общему запросу
+		}
+
+		// Обработка 'pereplet'
+		if (!empty($_GET["pereplet"]) && is_array($_GET["pereplet"])) {
+			$pereplet_query = array('relation' => 'OR');
+			foreach ($_GET["pereplet"] as $value) {
+				$pereplet_query[] = array(
+					'key'     => 'tkan',
+					'value'   => sanitize_text_field($value),
+					'compare' => 'LIKE',
+				);
+			}
+			$args['meta_query'][] = $pereplet_query; // Добавляем к общему запросу
+		}
+
+		// Установка итогового meta_query
+		if (!empty($args['meta_query'])) {
+			$query->set('meta_query', $args['meta_query']);
+		}
+	}
 }
 
 add_action('template_redirect', 'truemisha_recently_viewed_product_cookie', 20);

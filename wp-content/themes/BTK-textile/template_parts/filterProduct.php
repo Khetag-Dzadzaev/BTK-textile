@@ -45,7 +45,7 @@ global $qo;
 						$args['meta_query'] = array('relation' => 'OR');
 						if (strpos($_GET["Cenamount-input"], '-')) {
 							$price_arr = explode('-', $_GET["Cenamount-input"]);
-							echo ('от <strong><span class="amount-dufult1">' . $price_arr[0] . '</span>г/м2</strong> - до <strong><span class="amount-dufult2">' . $price_arr[1] . '</span>г/м2</strong>');
+							echo ('от <strong><span class="Cenamount-dufult1">' . $price_arr[0] . '</span><span class="measurement">₽ / м<span>2</span></span></strong> - до <strong><span class="Cenamount-dufult2">' . $price_arr[1] . '</span><span class="measurement">₽ / м<span>2</span></span></strong>');
 						}
 					} else { ?>
 						от <strong><span class="Cenamount-dufult1"><?php echo get_field("minimalnoe_znacheni_plotnosti", "option") ?></span><span class="measurement">₽ / м<span>2</span></span></strong> - до

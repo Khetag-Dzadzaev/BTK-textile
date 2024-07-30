@@ -39,33 +39,33 @@ $qo = get_queried_object();
 								)
 							),
 						);
-						if (!is_admin() && $wp_query->is_main_query() && $wp_query->is_tax("kategorii")) {
+						if (!is_admin() && $wp_query->is_main_query() && $wp_query->is_post_type_archive("finished-product")) {
 							$args['meta_query'] = array('relation' => 'AND'); // Общая связь - AND
 
 							// Обработка 'amount-input'
-							if (!empty($_GET["amount-input"])) {
+							if (!empty($_GET["Cenamount-input"])) {
 								$amount_query = array();
 
-								if (strpos($_GET["amount-input"], '-') !== false) {
-									$price_arr = explode('-', $_GET["amount-input"]);
+								if (strpos($_GET["Cenamount-input"], '-') !== false) {
+									$price_arr = explode('-', $_GET["Cenamount-input"]);
 
 									$amount_query[] = array(
-										'key'     => 'plotnost',
+										'key'     => 'czena',
 										'value'   => $price_arr[0],
 										'compare' => '>=',
 										'type'    => 'NUMERIC',
 									);
 
 									$amount_query[] = array(
-										'key'     => 'plotnost',
+										'key'     => 'czena',
 										'value'   => $price_arr[1],
 										'compare' => '<=',
 										'type'    => 'NUMERIC',
 									);
 								} else {
 									$amount_query[] = array(
-										'key'     => 'plotnost',
-										'value'   => sanitize_text_field($_GET["amount-input"]),
+										'key'     => 'czena',
+										'value'   => sanitize_text_field($_GET["Cenamount-input"]),
 										'compare' => '=',
 										'type'    => 'NUMERIC',
 									);
@@ -74,7 +74,7 @@ $qo = get_queried_object();
 								if (!empty($amount_query)) {
 									$args['meta_query'][] = array(
 										'relation' => 'AND',
-										$amount_query // Добавляем условие для amount-input
+										$amount_query // Добавляем условие для Cenamount-input
 									);
 								}
 							}
@@ -84,7 +84,7 @@ $qo = get_queried_object();
 								$svoistva_query = array('relation' => 'OR');
 								foreach ($_GET["svoistva"] as $value) {
 									$svoistva_query[] = array(
-										'key'     => 'svojstva',
+										'key'     => 'svojstvo',
 										'value'   => sanitize_text_field($value),
 										'compare' => 'LIKE',
 									);
@@ -97,7 +97,7 @@ $qo = get_queried_object();
 								$pereplet_query = array('relation' => 'OR');
 								foreach ($_GET["pereplet"] as $value) {
 									$pereplet_query[] = array(
-										'key'     => 'perepletenie',
+										'key'     => 'tkan',
 										'value'   => sanitize_text_field($value),
 										'compare' => 'LIKE',
 									);
