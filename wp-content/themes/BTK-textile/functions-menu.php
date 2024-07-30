@@ -35,9 +35,9 @@ class main_nav_menu_Walker extends Walker_Nav_Menu
 	{
 		if ($depth == 0) {
 			if ($args->has_children && $item->current) {
-				$output .= '<li class="menu__item menu__item_parent"><a href="' . $item->url . '" class="menu__link text text_nano text_textUp text_lh160">' . $item->title . '</a>';
+				$output .= '<li class="menu__item menu__item_parent"><a href="' . $item->url . '" class="menu__link text text_nano text_textUp text_lh160">' . $item->title . '</a><div class="menu__arrow-mobile"></div>';
 			} else if ($args->has_children) {
-				$output .= '<li class="menu__item menu__item_parent"><a href="' . $item->url . '" class="menu__link text text_nano text_textUp text_lh160">' . $item->title . '</a>';
+				$output .= '<li class="menu__item menu__item_parent"><a href="' . $item->url . '" class="menu__link text text_nano text_textUp text_lh160">' . $item->title . '</a><div class="menu__arrow-mobile"></div>';
 			} else {
 				$output .= '<li class="menu__item"><a href="' . $item->url . '" class="menu__link text text_nano text_textUp text_lh160">' . $item->title . '</a>';
 			}
