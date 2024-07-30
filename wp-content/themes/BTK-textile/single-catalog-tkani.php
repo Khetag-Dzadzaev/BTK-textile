@@ -155,11 +155,8 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 					<form class="form" action="">
 						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
 						<div class="form__block">
-							<input name="" type="hidden">
-							<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600">Флис 9110
-									с
-									выборочным
-									начесом black</span></p>
+							<input name="" type="hidden" value="<?php the_title(); ?>">
+							<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600"><?php the_title(); ?></span></p>
 						</div>
 						<div class="form__block form__block_50">
 							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">

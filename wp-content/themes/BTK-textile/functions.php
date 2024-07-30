@@ -50,7 +50,47 @@ function loadmoreProjects_action()
 		<a href="#" class="pagination__btn hover-btn loadmoreProjects" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">
 			Показать ещё
 		</a>
-		<?php $_SERVER['REQUEST_URI'] = '/news-akcii'; ?>
+		<?php $_SERVER['REQUEST_URI'] = '/catalog-tkani'; ?>
+		<?php if (function_exists('wp_pagenavi')) {
+			wp_pagenavi();
+		} ?>
+	</div>
+
+<?php
+	wp_die();
+}
+add_action('wp_ajax_loadmoreProduct', 'loadmoreProduct_action');
+add_action('wp_ajax_nopriv_loadmoreProduct', 'loadmoreProduct_action');
+function loadmoreProduct_action()
+{
+	global $post;
+
+	$args = [
+		'post_type' => 'finished-product',
+		'post_status' => 'publish',
+		'posts_per_page' => 12,
+		'paged' => $_POST['page'] + 1,
+	];
+
+
+	query_posts($args);
+?>
+	<div class="product product_archive">
+		<?php while (have_posts()) {
+			the_post(); ?>
+			<div class="product__box">
+
+				<?php echo	get_template_part('template_parts/product-single'); ?>
+			</div>
+		<?php
+		};
+		wp_reset_postdata(); ?>
+	</div>
+	<div class="dop_buttons">
+		<a href="#" class="pagination__btn hover-btn loadmoreProduct" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">
+			Показать ещё
+		</a>
+		<?php $_SERVER['REQUEST_URI'] = '/finished-product'; ?>
 		<?php if (function_exists('wp_pagenavi')) {
 			wp_pagenavi();
 		} ?>
@@ -216,7 +256,7 @@ function truemisha_recently_viewed_product_cookie()
 {
 
 	// если находимся не на странице товара, ничего не делаем
-	if (!is_singular("catalog-tkani")) {
+	if (!is_singular("catalog-tkani") && !is_singular("finished-product")) {
 		return;
 	}
 
@@ -233,10 +273,27 @@ function truemisha_recently_viewed_product_cookie()
 	}
 
 	// нет смысла хранить там бесконечное количество товаров
-	if (sizeof($viewed_products) > 15) {
+	if (sizeof($viewed_products) > 8) {
+		array_shift($viewed_products); // выкидываем первый элемент
+	}
+
+	if (empty($_COOKIE['finishedProductViewed'])) {
+		$viewed_products = array();
+	} else {
+		$viewed_products = (array) explode(',', $_COOKIE['finishedProductViewed']);
+	}
+
+	// добавляем в массив текущий товар
+	if (!in_array(get_the_ID(), $viewed_products)) {
+		$viewed_products[] = get_the_ID();
+	}
+
+	// нет смысла хранить там бесконечное количество товаров
+	if (sizeof($viewed_products) > 8) {
 		array_shift($viewed_products); // выкидываем первый элемент
 	}
 
 	// устанавливаем в куки
 	setcookie('catalogTkaniViewed', join(',', $viewed_products), time() + 3600, "/");
+	setcookie('finishedProductViewed', join(',', $viewed_products), time() + 3600, "/");
 }

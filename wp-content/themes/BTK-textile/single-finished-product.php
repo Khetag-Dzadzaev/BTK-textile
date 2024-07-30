@@ -75,7 +75,7 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 					</div>
 				</div>
 			</div>
-			<a href="/finished-product" class="back text text_nano text_fw500 text_lh160 text_textUp"><span>
+			<a href="/finished-product/" class="back text text_nano text_fw500 text_lh160 text_textUp"><span>
 					<svg class="contact__before">
 						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
 					</svg>
@@ -103,27 +103,33 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 							<?php echo	get_template_part('template_parts/product-single'); ?>
 						</div>
 					<?php	}
+					wp_reset_query();
 					wp_reset_postdata(); ?>
 				</div>
 			</div>
 		</section>
 	<?php } ?>
-	<!-- 	<?php
-					if (isset($_COOKIE['catalogTkaniViewed'])) {
-						$viewedPosts = array_map('intval', explode(",", $_COOKIE['catalogTkaniViewed']));
-						$viewedPosts = array_filter($viewedPosts, function ($id) {
-							return $id != get_the_ID();
-						});
-						if (!empty($viewedPosts)) {
+	<?php
+	if (isset($_COOKIE['finishedProductViewed'])) {
 
-							$query = new WP_Query([
-								'post__in' => $viewedPosts,
-								'orderby' => 'post__in',
-								'posts_per_page' => 4,
-								'post_type' => 'catalog-tkani',
-							]);
+		$viewedPosts = array_map('intval', explode(",", $_COOKIE['catalogTkaniViewed']));
 
-							if ($query->have_posts()) { ?>
+
+		$viewedPosts = array_filter($viewedPosts, function ($id) {
+			return $id != get_the_ID();
+		});
+
+		if (!empty($viewedPosts)) {
+
+			$query = new WP_Query([
+				'post__in' => $viewedPosts,
+				'orderby' => 'post__in',
+				'posts_per_page' => 4,
+				'post_type' => 'finished-product',
+			]);
+
+
+			if ($query->have_posts()) { ?>
 				<section class="section section_pt">
 					<div class="container">
 						<div class="section__title section__title_single">
@@ -131,18 +137,21 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 						</div>
 						<div class="product product_single">
 							<?php
-								while ($query->have_posts()) {
-									$query->the_post(); ?>
+							while ($query->have_posts()) {
+								$query->the_post(); ?>
 								<div class="product__box product__box_single">
-									<?php echo	get_template_part('template_parts/tkani-single'); ?>
+									<?php echo	get_template_part('template_parts/product-single'); ?>
 								</div>
-							<?php } ?>
+							<?php }
+							wp_reset_query();
+							wp_reset_postdata();
+							?>
 						</div>
 					</div>
 				</section>
 	<?php }
-						}
-					} ?> -->
+		}
+	} ?>
 
 	<div class="modal-order">
 		<div class="container">
@@ -152,11 +161,8 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 					<form class="form" action="">
 						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
 						<div class="form__block">
-							<input name="" type="hidden">
-							<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600">Флис 9110
-									с
-									выборочным
-									начесом black</span></p>
+							<input name="" type="hidden" value="<?php the_title(); ?>">
+							<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600"><?php the_title(); ?></span></p>
 						</div>
 						<div class="form__block form__block_50">
 							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
@@ -177,7 +183,7 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 						<div class="form__checkbox-block">
 							<input name="" type="checkbox" class="form__checkbox" id="checkbox">
 							<label class="form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
-									даных в соттветсвии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
+									даных в соттветсвии с <a href="#" class="form__checkbox-link">политикой конфиденциальности</a>
 								</span></label>
 						</div>
 

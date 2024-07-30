@@ -52,7 +52,7 @@ $kategori = get_terms("tip_odezhdi");
 						$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 						$link = html_entity_decode(get_pagenum_link()); ?>
 
-						<a href="#" class="button-ajax text text_nano text_fw500 text_lh160 gallery" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">Показать ещё
+						<a href="#" class="button-ajax text text_nano text_fw500 text_lh160 linux" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">Показать ещё
 						</a>
 						<?php if (function_exists('wp_pagenavi')) {
 							wp_pagenavi();
@@ -66,7 +66,7 @@ $kategori = get_terms("tip_odezhdi");
 <?php get_footer(); ?>
 
 <script>
-	const loadMore = document.querySelector('.gallery');
+	const loadMore = document.querySelector('.linux');
 	var currentPage = <?php echo $paged; ?>;
 	var pageNext = Number(loadMore.getAttribute('data-page'));
 	var pages = loadMore.getAttribute('data-pages');
@@ -85,7 +85,7 @@ $kategori = get_terms("tip_odezhdi");
 		window.history.pushState("", "Title", link);
 		const xhr = new XMLHttpRequest();
 		const data = new FormData();
-		data.append("action", "loadmoreProjects");
+		data.append("action", "loadmoreProduct");
 		data.append("page", currentPage);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4) {

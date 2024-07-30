@@ -122,12 +122,6 @@ $qo = get_queried_object();
 						?>
 					</div>
 					<div class="dop-buttons">
-						<?php $max_pages = $wp_query->max_num_pages;
-						$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-						$link = html_entity_decode(get_pagenum_link()); ?>
-
-						<a href="#" class="button-ajax text text_nano text_fw500 text_lh160 gallery" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">Показать ещё
-						</a>
 						<?php if (function_exists('wp_pagenavi')) {
 							wp_pagenavi();
 						} ?>
@@ -138,60 +132,3 @@ $qo = get_queried_object();
 	</section>
 </main>
 <?php get_footer(); ?>
-
-<script>
-	const loadMore = document.querySelector('.gallery');
-	var currentPage = <?php echo $paged; ?>;
-	var pageNext = Number(loadMore.getAttribute('data-page'));
-	var pages = loadMore.getAttribute('data-pages');
-	if (pageNext < pages) {
-		pageNext++;
-	}
-	window.addEventListener("DOMContentLoaded", () => {
-		if (currentPage == pageNext) {
-			loadMore.remove();
-		}
-	});
-	loadMore.addEventListener('click', (e) => {
-		var act = '/wp-admin/admin-ajax.php';
-		e.preventDefault();
-		var link = loadMore.getAttribute('data-link') + "page/" + pageNext + "/";
-		window.history.pushState("", "Title", link);
-		const xhr = new XMLHttpRequest();
-		const data = new FormData();
-		data.append("action", "loadmoreProjects");
-		data.append("page", currentPage);
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4) {
-				if (xhr.status === 200) {
-					let response = xhr.responseText;
-					let divResponse = document.createElement("div");
-					divResponse.innerHTML = xhr.responseText;
-					// console.log(divResponse);return;
-					let paginationResponse = divResponse.querySelector('.pagination');
-					let itemsResponse = divResponse.querySelectorAll('.product__box');
-					let parent = document.querySelector(".product.product_archive");
-					let pagination = document.querySelector('.pagination');
-					// console.log(itemsResponse);console.log(div);return;
-					if (response) {
-						itemsResponse.forEach(el => {
-							parent.append(el);
-						});
-						pagination.replaceWith(paginationResponse);
-					}
-					if (pageNext == pages) {
-						loadMore.remove();
-						console.log(pageNext);
-					} else {
-						pageNext++;
-					}
-					currentPage++;
-				} else {
-					console.log('An error occurred during your request: ' + xhr.status + ' ' + xhr.statusText);
-				}
-			}
-		}
-		xhr.open("POST", act);
-		xhr.send(data);
-	});
-</script>
