@@ -1538,16 +1538,18 @@ img
 		align-items: center
 		overflow-y: scroll
 		justify-content: center
-		&__block
-			position: relative
-			width: 100%
-			background-color: #fff
-			overflow-y: scroll
-			height: 100%
+		+media-breakpoint-up(md)
+			overflow: visible
+	&__block
+		position: relative
+		width: 100%
+		background-color: #fff
+		overflow-y: scroll
+		height: 100%
 		@media screen and (min-height:725px)
 			height: auto
 		+media-breakpoint-up(md)
-			overflow: visible
+			overflow: auto
 			padding: 0
 			width: 640px
 		&>.form
@@ -1611,6 +1613,8 @@ img
 		align-items: center
 		overflow-y: scroll
 		justify-content: center
+		+media-breakpoint-up(md)
+			overflow: visible
 	&__block
 		position: relative
 		width: 100%
@@ -1620,7 +1624,7 @@ img
 		@media screen and (min-height:725px)
 			height: auto
 		+media-breakpoint-up(md)
-			overflow: visible
+			overflow: auto
 			padding: 0
 			width: 640px
 		&>.form
