@@ -12,10 +12,6 @@
 .lg-outer .lg-thumb-outer, .lg-outer .lg-toggle-thumb
 	background-color: rgba(0,0,0, .45)
 
-.response
-	position: relative
-	z-index: 2
-
 .success
 	margin-top: 30px
 	background-color: #3fb53f
@@ -346,7 +342,7 @@ img
 				&>.menu__arrow-mobile
 					transform: rotate(-90deg)
 				&>.menu-child
-					z-index: 1
+					z-index: 5
 					opacity: 1
 					padding: 20px 0 0 20px
 					display: flex
@@ -370,7 +366,7 @@ img
 					&::before
 						transform: rotate(-90deg)
 					&>.menu-child
-						z-index: 1
+						z-index: 5
 						opacity: 1
 						display: flex
 	&__arrow-mobile
@@ -1746,3 +1742,24 @@ img
 
 .images-slider-sizes
 	object-fit: contain
+
+.response
+	text-align: center
+	opacity: 0
+	z-index: 0
+	display: none
+	width: 100%
+	margin: 10px 0
+	transition: 0.5s
+	&.text.text_tac
+		margin-bottom: 0
+	&.good
+		background-color: #6bc242
+		color: #fff
+		opacity: 1
+		display: inline
+	&.false
+		background-color: #fc0000
+		color: #000
+		opacity: 1
+		display: inline
