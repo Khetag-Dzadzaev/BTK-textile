@@ -1118,6 +1118,8 @@ img
 			flex: 0 0 33.3333%
 	&__text
 		color: rgb(153, 159, 174)
+		&:hover
+			color: rgb(153, 159, 174)
 	&__block
 		display: flex
 		flex-direction: column
@@ -1130,7 +1132,7 @@ img
 			padding: 24px 0
 		&>p.text
 			display: flex
-			align-items: flex-end
+			align-items: center
 			gap: 4px
 			margin-bottom: 24px
 			+media-breakpoint-up(sm)
@@ -1142,10 +1144,12 @@ img
 				font-size: 20px
 				color: $text
 				font-weight: 700
-				margin-bottom: 2px
+				margin-top: -2.5px
 				+media-breakpoint-up(sm)
+					margin-top: -5px
 					font-size: 26px
 				+media-breakpoint-up(md)
+					margin-top: -10px
 					font-size: 32px
 
 .gallery-container
@@ -1645,3 +1649,20 @@ img
 
 .min-max
 	display: none
+
+.measurement
+	position: relative
+	margin-right: 6.5px
+	&>span
+		position: absolute
+		font-size: 11px
+		top: -6.5px
+		right: -6.5px
+	&>.single-cen
+		font-size: 14px
+		top: -7.5px
+		right: -7.5px
+		+media-breakpoint-up(sm)
+			font-size: 18px
+			top: -10px
+			right: -10px

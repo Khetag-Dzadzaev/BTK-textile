@@ -161,7 +161,7 @@ if (amount) {
 		});
 
 		slider.noUiSlider.on('update', function (values) {
-			amount.innerHTML = 'от <strong><span class="amount-dufult1">' + Math.round(values[0]) + '<span>г/м2</strong> -  до <strong><span class="amount-dufult2">' + Math.round(values[1]) + '<span>г/м2</strong>';
+			amount.innerHTML = 'от <strong><span class="amount-dufult1">' + Math.round(values[0]) + '<span><span class="measurement">г/м<span>2</span></span></strong> -  до <strong><span class="amount-dufult2">' + Math.round(values[1]) + '<span><span class="measurement">г/м<span>2</span></span></strong>';
 			amountInput.value = Math.round(values[0]) + "-" + Math.round(values[1]);
 		});
 	}
