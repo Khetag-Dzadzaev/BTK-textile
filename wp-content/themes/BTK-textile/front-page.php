@@ -1,12 +1,7 @@
 <?php get_header(); ?>
 <main class="main">
 	<?php
-	$query = new WP_Query([
-		'post_type' => 'catalog-tkani',
-		'posts_per_page' => 6,
-	]);
-
-	if ($query->have_posts()) {
+	if (!empty(get_terms('catalog-tkani'))) {
 	?>
 		<section class="section">
 			<div class="container">
@@ -27,11 +22,31 @@
 				</div>
 				<div class="product">
 					<?php
-					while ($query->have_posts()) {
-						$query->the_post();
-						echo  get_template_part('template_parts/tkani-front-page');
-					}
-					wp_reset_postdata(); ?>
+					foreach (get_terms('kategorii') as $value) {
+						$photo = get_field("foto", "term_" . $value->term_id); ?>
+						<div class="product__box">
+							<a href="<?php echo ("/" . $value->taxonomy . "/" . $value->slug); ?>" class="product__block">
+								<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img">
+								<div class="product__text">
+									<p class="product__link text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->name; ?>
+										<span>
+											<svg class="contact__before">
+												<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
+											</svg>
+										</span>
+									</p>
+									<p class="text text_gray text_mid text_lh150">
+										<?php
+										if (is_numeric($value->count)) {
+											echo $value->count == 1 ? $value->count . " позиция" : $value->count . " позиций";
+										} else {
+											echo "неизвестное количество позиций";
+										}
+										?> </p>
+								</div>
+							</a>
+						</div>
+					<?php		} ?>
 				</div>
 			</div>
 		</section>

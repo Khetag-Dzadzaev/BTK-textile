@@ -1,5 +1,5 @@
 <?php get_header();
-$kategori = get_the_terms(get_the_ID(), "kategorii");
+$kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 ?>
 <main class="main">
 	<section class="section section_single">
@@ -24,7 +24,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 								foreach (get_field("fotografii") as $value) {
 								?>
 									<a href="<?php echo $value["foto"]['url']; ?>" class="swiper-slide lg-item">
-										<img src="<?php echo $value["foto"]['sizes']["large"]; ?>" alt="<?php echo $value["foto"]['title']; ?>" class="product-img">
+										<img src="<?php echo $value["foto"]['sizes']["large"]; ?>" alt="<?php echo $value["foto"]['title']; ?>" class="product-img images-slider-sizes">
 									</a>
 								<?php } ?>
 							</div>
@@ -35,7 +35,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 							<div class="swiper-wrapper">
 								<?php foreach (get_field("fotografii") as $value) { ?>
 									<div class="swiper-slide">
-										<img src="<?php echo $value["foto"]['sizes']["thumbnail"]; ?>" alt="<?php echo $value["foto"]['title']; ?>" class="product-img-thums">
+										<img src="<?php echo $value["foto"]['sizes']["thumbnail"]; ?>" alt="<?php echo $value["foto"]['title']; ?>" class="product-img-thums images-slider-sizes">
 									</div>
 								<?php } ?>
 							</div>
@@ -57,20 +57,16 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 							</div>
 							<div class="product-info__colum">
 								<p class="text text_lh171 product-info__text">Свойства</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("svojstva"); ?></p>
+								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("svojstvo"); ?></p>
 							</div>
 							<div class="product-info__colum">
-								<p class="text text_lh171 product-info__text">Плотность</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("plotnost"); ?> г/м2</p>
-							</div>
-							<div class="product-info__colum">
-								<p class="text text_lh171 product-info__text">Переплетение</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("perepletenie"); ?></p>
+								<p class="text text_lh171 product-info__text">Ткань</p>
+								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("tkan"); ?> г/м2</p>
 							</div>
 
 						</div>
 						<div class="product-info__cen-button">
-							<p class="text text_nano text_dark text_lh160 text_textUp">Цена за пог.м.: <span><?php echo get_field("czena"); ?><span class="measurement">₽ / м<span class="single-cen">2</span></span></span></p>
+							<p class="text text_nano text_dark text_lh160 text_textUp">Цена за пог.м.: <span><?php echo get_field("czena"); ?> <span class="measurement">₽ / м<span class="single-cen">2</span></span></span></p>
 							<div class="button-contact button-contact_button  order-button">Отправить заявку</div>
 						</div>
 						<?php if (!empty(get_field("tekst"))) { ?>
@@ -79,7 +75,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 					</div>
 				</div>
 			</div>
-			<a href="/catalog-tkani" class="back text text_nano text_fw500 text_lh160 text_textUp"><span>
+			<a href="/finished-product" class="back text text_nano text_fw500 text_lh160 text_textUp"><span>
 					<svg class="contact__before">
 						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
 					</svg>
@@ -88,7 +84,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 	</section>
 	<?php
 	$query = new WP_Query([
-		'post_type' => 'catalog-tkani',
+		'post_type' => 'finished-product',
 		'posts_per_page' => 8,
 		'post__not_in' => array(get_the_ID()),
 	]);
@@ -104,7 +100,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 					while ($query->have_posts()) {
 						$query->the_post(); ?>
 						<div class="product__box product__box_single">
-							<?php echo	get_template_part('template_parts/tkani-single'); ?>
+							<?php echo	get_template_part('template_parts/product-single'); ?>
 						</div>
 					<?php	}
 					wp_reset_postdata(); ?>
@@ -112,22 +108,22 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 			</div>
 		</section>
 	<?php } ?>
-	<?php
-	if (isset($_COOKIE['catalogTkaniViewed'])) {
-		$viewedPosts = array_map('intval', explode(",", $_COOKIE['catalogTkaniViewed']));
-		$viewedPosts = array_filter($viewedPosts, function ($id) {
-			return $id != get_the_ID();
-		});
-		if (!empty($viewedPosts)) {
+	<!-- 	<?php
+					if (isset($_COOKIE['catalogTkaniViewed'])) {
+						$viewedPosts = array_map('intval', explode(",", $_COOKIE['catalogTkaniViewed']));
+						$viewedPosts = array_filter($viewedPosts, function ($id) {
+							return $id != get_the_ID();
+						});
+						if (!empty($viewedPosts)) {
 
-			$query = new WP_Query([
-				'post__in' => $viewedPosts,
-				'orderby' => 'post__in',
-				'posts_per_page' => 4,
-				'post_type' => 'catalog-tkani',
-			]);
+							$query = new WP_Query([
+								'post__in' => $viewedPosts,
+								'orderby' => 'post__in',
+								'posts_per_page' => 4,
+								'post_type' => 'catalog-tkani',
+							]);
 
-			if ($query->have_posts()) { ?>
+							if ($query->have_posts()) { ?>
 				<section class="section section_pt">
 					<div class="container">
 						<div class="section__title section__title_single">
@@ -135,8 +131,8 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 						</div>
 						<div class="product product_single">
 							<?php
-							while ($query->have_posts()) {
-								$query->the_post(); ?>
+								while ($query->have_posts()) {
+									$query->the_post(); ?>
 								<div class="product__box product__box_single">
 									<?php echo	get_template_part('template_parts/tkani-single'); ?>
 								</div>
@@ -145,8 +141,9 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 					</div>
 				</section>
 	<?php }
-		}
-	} ?>
+						}
+					} ?> -->
+
 	<div class="modal-order">
 		<div class="container">
 			<div class="modal-order__box">
