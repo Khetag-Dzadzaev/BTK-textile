@@ -1,11 +1,23 @@
 <?php global $god;
 global $qo;
+$kategori = get_terms("tip_odezhdi");
 ?>
+<?php if (!empty($kategori)) { ?>
+	<div class="archive__taxsanomi">
+		<?php foreach ($kategori as  $value) {
+			$kategori_link = get_term_link($value->{'term_id'}, 'tip_odezhdi');
+		?>
+			<a href="<?php echo $kategori_link; ?>" class="archive__taxsanomi-item  text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->{'name'} ?><span>
+					<svg class="">
+						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
+					</svg>
+				</span></a>
+		<?php } ?>
+	</div>
+<?php	} ?>
 <form action="<?php if (isset($god)) { ?>
 									/tip_odezhdi/<?php echo $qo->slug ?>
-						<?php	} else { ?>/finished-product/<?php } ?>" method="GET" class="archive__filter-bottom <?php if (isset($god)) {
-																																																					echo ("archive__filter-bottom_mt0");
-																																																				} ?>">
+						<?php	} else { ?>/finished-product/<?php } ?>" method="GET" class="archive__filter-bottom">
 	<div class="archive__filter-block">
 		<div class="archive__filter-box">
 			<p class="archive__filter-title text text_mid text_fw600 text_lh150 text_textUp">Свойства</p>

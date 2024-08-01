@@ -9,7 +9,7 @@
 					<h1 class="text text__title-big text_fw700 text_dark">Каталог складских запасов тканей</h1>
 					<div class="section__text-button">
 						<?php if (!empty(get_field("tekst_bloka_katalog_tkanej"))) { ?>
-							<p class="text text_big text_lh150 text_dark"><?php echo get_field("tekst_bloka_katalog_tkanej"); ?></p>
+							<p class="text text_mid text_lh150 text_dark"><?php echo get_field("tekst_bloka_katalog_tkanej"); ?></p>
 						<?php	} ?>
 						<a href="/catalog-tkani/" class="section__link text text_nano text_fw500 text_lh160 text_textUp">Перейти в каталог
 							<span>
@@ -27,7 +27,7 @@
 						<div class="product__box">
 							<a href="<?php echo ("/" . $value->taxonomy . "/" . $value->slug); ?>" class="product__block">
 								<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img">
-								<div class="product__text">
+								<div class="product__text  product__text_front-page">
 									<p class="product__link text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->name; ?>
 										<span>
 											<svg class="contact__before">
@@ -57,9 +57,9 @@
 		<section class="section section_pt">
 			<div class="container">
 				<div class="section__title">
-					<h1 class="text text__title-big text_fw700 text_dark">Каталог готовых изделий</h1>
+					<p class="text text__title-big text_fw700 text_dark">Каталог готовых изделий</p>
 					<div class="section__text-button">
-						<p class="text text_big text_lh150 text_dark"><?php echo get_field("tekst_bloka_gotovoj_produkczii"); ?></p>
+						<p class="text text_mid text_lh150 text_dark"><?php echo get_field("tekst_bloka_gotovoj_produkczii"); ?></p>
 						<a href="/finished-product/" class="section__link text text_nano text_fw500 text_lh160 text_textUp">Перейти в каталог
 							<span>
 								<svg class="contact__before">
@@ -76,7 +76,7 @@
 						<div class="product__box">
 							<a href="<?php echo ("/" . $value->taxonomy . "/" . $value->slug); ?>" class="product__block product__block_bg">
 								<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img product__img_bg">
-								<div class="product__text">
+								<div class="product__text product__text_front-page">
 									<p class="product__link text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->name; ?>
 										<span>
 											<svg class="contact__before">

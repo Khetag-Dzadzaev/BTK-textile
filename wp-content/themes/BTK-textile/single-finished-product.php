@@ -66,7 +66,7 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 
 						</div>
 						<div class="product-info__cen-button">
-							<p class="text text_nano text_dark text_lh160 text_textUp">Цена за пог.м.: <span><?php echo get_field("czena"); ?> <span class="measurement">₽ / м<span class="single-cen">2</span></span></span></p>
+							<p class="text text_nano text_dark text_lh160">Цена за пог.м.: <span><?php echo get_field("czena"); ?><span class="measurement"> ₽ / м<span class="single-cen">2</span></span></span></p>
 							<div class="button-contact button-contact_button  order-button">Отправить заявку</div>
 						</div>
 						<?php if (!empty(get_field("tekst"))) { ?>

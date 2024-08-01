@@ -1,5 +1,5 @@
 <?php get_header();
-$kategori = get_terms("tip_odezhdi");
+
 
 
 ?>
@@ -18,19 +18,7 @@ $kategori = get_terms("tip_odezhdi");
 		<div class="container">
 			<div class="archive">
 				<div class="archive__filter">
-					<?php if (!empty($kategori)) { ?>
-						<div class="archive__taxsanomi">
-							<?php foreach ($kategori as  $value) {
-								$kategori_link = get_term_link($value->{'term_id'}, 'tip_odezhdi');
-							?>
-								<a href="<?php echo $kategori_link; ?>" class="archive__taxsanomi-item  text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->{'name'} ?><span>
-										<svg class="">
-											<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprite.svg#arrow-link"></use>
-										</svg>
-									</span></a>
-							<?php } ?>
-						</div>
-					<?php	} ?>
+
 					<?php echo	get_template_part('template_parts/filterProduct'); ?>
 				</div>
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/cross.png" alt="charset" class="filter-crest">
