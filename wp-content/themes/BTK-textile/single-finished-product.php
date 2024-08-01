@@ -57,11 +57,11 @@ $kategori = get_the_terms(get_the_ID(), "tip_odezhdi");
 							</div>
 							<div class="product-info__colum">
 								<p class="text text_lh171 product-info__text">Свойства</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("svojstvo"); ?></p>
+								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("svojstvo")["label"]; ?></p>
 							</div>
 							<div class="product-info__colum">
 								<p class="text text_lh171 product-info__text">Ткань</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("tkan"); ?> г/м2</p>
+								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("tkan")["label"]; ?> г/м2</p>
 							</div>
 
 						</div>

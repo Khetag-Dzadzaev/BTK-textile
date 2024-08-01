@@ -57,7 +57,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 							</div>
 							<div class="product-info__colum">
 								<p class="text text_lh171 product-info__text">Свойства</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("svojstva"); ?></p>
+								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("svojstva")["label"]; ?></p>
 							</div>
 							<div class="product-info__colum">
 								<p class="text text_lh171 product-info__text">Плотность</p>
@@ -65,7 +65,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 							</div>
 							<div class="product-info__colum">
 								<p class="text text_lh171 product-info__text">Переплетение</p>
-								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("perepletenie"); ?></p>
+								<p class="text text_lh150 text_fw500 text_mini"><?php echo get_field("perepletenie")["label"]; ?></p>
 							</div>
 
 						</div>

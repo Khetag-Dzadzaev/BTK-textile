@@ -12,12 +12,12 @@ global $qo;
 			<label class="archive__filter-checkbox text text_lh150 text_mini">
 				<input type="checkbox" name="svoistva[]" value="one" <?php if (!empty($_GET["svoistva"]) && in_array("one", $_GET["svoistva"]))  echo "checked";
 																															?>>
-				<span>one</span>
+				<span>Один</span>
 			</label>
 			<label class="archive__filter-checkbox text text_lh150 text_mini">
 				<input type="checkbox" name="svoistva[]" value="two" <?php if (!empty($_GET["svoistva"]) && in_array("two", $_GET["svoistva"]))  echo "checked";
 																															?>>
-				<span>two</span>
+				<span>Два</span>
 			</label>
 		</div>
 		<div class="archive__filter-box">
@@ -25,12 +25,12 @@ global $qo;
 			<label class="archive__filter-checkbox text text_lh150 text_mini">
 				<input type="checkbox" name="pereplet[]" value="one" <?php if (!empty($_GET["pereplet"]) && in_array("one", $_GET["pereplet"]))  echo "checked";
 																															?>>
-				<span>One</span>
+				<span>Один</span>
 			</label>
 			<label class="archive__filter-checkbox text text_lh150 text_mini">
 				<input type="checkbox" name="pereplet[]" value="two" <?php if (!empty($_GET["pereplet"]) && in_array("two", $_GET["pereplet"]))  echo "checked";
 																															?>>
-				<span>Two</span>
+				<span>Два</span>
 			</label>
 
 		</div>
