@@ -97,7 +97,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 		<section class="section section_pt">
 			<div class="container">
 				<div class="section__title section__title_single">
-					<h2 class="text text_lh150 text__title-mid text_fw700 text_dark">Смотрите также</h2>
+					<p class="text text_lh150 text__title-mid text_fw700 text_dark">Смотрите также</p>
 				</div>
 				<div class="product product_single">
 					<?php
@@ -131,7 +131,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 				<section class="section section_pt">
 					<div class="container">
 						<div class="section__title section__title_single">
-							<h2 class="text text_lh150 text__title-mid text_fw700 text_dark">Ранее смотрели</h2>
+							<p class="text text_lh150 text__title-mid text_fw700 text_dark">Ранее смотрели</p>
 						</div>
 						<div class="product product_single">
 							<?php
@@ -155,7 +155,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 				<div class="modal-order__block">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Plus.svg" alt="moda-crest" class="modal-order__crest">
 					<form class="form" action="">
-						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
+						<p class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</p>
 						<div class="form__block">
 							<input name="" type="hidden" value="<?php the_title(); ?>">
 							<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600"><?php the_title(); ?></span></p>
