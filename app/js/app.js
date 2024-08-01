@@ -1,19 +1,26 @@
 if (window.innerWidth <= 992) {
 	let menuDropButton = document.querySelectorAll(".menu__arrow-mobile");
-	let stockHeight = 0;
 	if (menuDropButton) {
 		menuDropButton.forEach(element => {
-			stockHeight = 0;
+			let stockHeight = 0;
 			let menuDop = element.parentNode.querySelector(".menu-child");
+			let menuDopItem = menuDop.querySelectorAll(".menu-child__item");
 			let a = true;
 			if (stockHeight === 0) {
-				stockHeight = menuDop.offsetHeight + "px";
+				menuDopItem.forEach(el => {
+					stockHeight += el.offsetHeight + 10;
+					console.log(el.offsetHeight);
+
+				});
+				stockHeight += 20;
+				stockHeight += "px";
 				menuDop.style.height = 0;
 			}
 			element.addEventListener("click", function () {
 				this.parentNode.classList.toggle("active");
 				if (a === true) {
 					this.parentNode.querySelector(".menu-child").style.height = stockHeight;
+					console.log(this.parentNode.querySelector(".menu-child").style.height);
 				} else {
 					this.parentNode.querySelector(".menu-child").style.height = 0;
 				}
@@ -23,7 +30,6 @@ if (window.innerWidth <= 992) {
 					a = true;
 				}
 			});
-
 		});
 	}
 }

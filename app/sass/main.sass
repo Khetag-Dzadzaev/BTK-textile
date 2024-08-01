@@ -344,8 +344,8 @@ img
 				&>.menu-child
 					z-index: 5
 					opacity: 1
-					padding: 20px 0 0 20px
-					display: flex
+
+					visibility: visible
 			+media-breakpoint-up(sm)
 				min-height: 30px
 			+media-breakpoint-up(lg)
@@ -393,17 +393,19 @@ img
 	flex-direction: column
 	list-style: none
 	gap: 8px
-	opacity: 0
-	z-index: -10
 	transition: 0.5s
-	padding: 0
+	padding: 20px 0 0 20px
 	position: static
-	display: none
+	visibility: visible
 	+media-breakpoint-up(lg)
+		visibility: visible
+		z-index: -10
+		opacity: 0
 		padding: 20px
 		width: 250px
 		position: absolute
 		top: 33px
+		display: none
 	&__link
 		display: inline-block
 		width: 100%
