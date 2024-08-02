@@ -59,14 +59,8 @@ if (galleries) {
 	}
 }
 var galleryThumbs = new Swiper(".gallery-thumbs", {
-	centeredSlides: true,
-	centeredSlidesBounds: true,
 	slidesPerView: 3,
 	spaceBetween: 15,
-	watchOverflow: true,
-	watchSlidesVisibility: true,
-	watchSlidesProgress: true,
-	direction: "horizontal",
 	breakpoints: {
 		1200: {
 			slidesPerView: 5,
@@ -78,11 +72,7 @@ var galleryThumbs = new Swiper(".gallery-thumbs", {
 });
 
 var galleryMain = new Swiper(".gallery-main", {
-	watchOverflow: true,
-	watchSlidesVisibility: true,
-	watchSlidesProgress: true,
 	rewind: true,
-	preventInteractionOnTransition: true,
 	navigation: {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev',
