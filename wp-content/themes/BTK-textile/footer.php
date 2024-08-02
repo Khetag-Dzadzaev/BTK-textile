@@ -45,33 +45,34 @@
 			<div class="modal__box">
 				<div class="modal__block">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Plus.svg" alt="moda-crest" class="modal__crest">
-					<form class="form" action="">
+					<form class="form" id="form-modal" action="<?php echo get_template_directory_uri(); ?>/php/modal.php">
 						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
+							<input name="modal-name" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf " placeholder="Город">
+							<input name="modal-city" type="text" class="form__input form__input_pf " placeholder="Город">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf " placeholder="Телефон">
+							<input name="modal-phone" type="text" class="form__input form__input_pf  tel" placeholder="Телефон">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="email" class="form__input form__input_pf" placeholder="Электронная почта">
+							<input name="modal-mail" type="email" class="form__input form__input_pf" placeholder="Электронная почта">
 						</div>
 						<div class="form__block">
-							<textarea type="text" class="form__input form__input_textarea " placeholder="Текст сообщения"></textarea>
+							<textarea name="modal-text" type="text" class="form__input form__input_textarea " placeholder="Текст сообщения"></textarea>
 						</div>
 
 						<div class="form__checkbox-block">
-							<input name="" type="checkbox" class="form__checkbox" id="checkbox">
-							<label class="form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
+							<input name="modal-checkbox" type="checkbox" class="form__checkbox" id="checkbox">
+							<label id="modal-check" class=" form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
 									даных в соттветсвии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
 								</span></label>
 						</div>
 
 						<button class="button-contact">Оставить заявку</button>
-						<div class="response text text_white text_tac text_mid "></div>
+						<div class="response response-modal text text_white text_tac text_mid "></div>
+						<?php wp_nonce_field('modal_nonce_action', 'modal_nonce_field'); ?>
 					</form>
 				</div>
 			</div>
@@ -79,7 +80,61 @@
 	</div>
 </footer>
 <?php wp_footer(); ?>
+<script>
+	const form = document.querySelector("#form-modal");
 
+	var act = form.getAttribute("action");
+	form.addEventListener("submit", async function(e) {
+		e.preventDefault();
+		var formData = new FormData(form);
+		const request = await fetch(act, {
+			method: "POST",
+			body: formData
+		});
+
+		const response = await request.json();
+		var inputForm = form.querySelectorAll("input");
+		inputForm.forEach(element => {
+			element.style.border = "1px solid #262626";
+		});
+
+		if (request.ok) {
+			document.querySelector(".response-modal").classList.remove("false");
+			document.querySelector(".response-modal").classList.add("good");
+			document.querySelector(".response-modal").innerHTML = "Успешная отправка";
+			for (var key in response) {
+				if (key == 'modal-checkbox') {
+					document.querySelector("#modal-check").classList.remove("error");
+				} else {
+					document.querySelector(`input[name=${key}]`).style.border = "1px solid #262626";
+				}
+			}
+
+		} else {
+
+
+			switch (request.status) {
+				case 422:
+					document.querySelector(".response-modal").classList.add("false");
+					document.querySelector(".response-modal").innerHTML = "Заполните обязательные поля";
+					for (var key in response) {
+						if (key == 'modal-checkbox') {
+							document.querySelector("#modal-check").classList.add("error");
+						} else {
+							document.querySelector(`input[name=${key}]`).style.border = "1px solid red";
+						}
+					}
+
+					break;
+
+				default:
+					document.querySelector(".response-modal").classList.add("false");
+					document.querySelector(".response-modal").innerHTML = "Что-то пошло не так";
+					break;
+			}
+		}
+	})
+</script>
 </body>
 
 </html>

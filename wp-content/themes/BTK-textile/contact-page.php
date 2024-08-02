@@ -81,33 +81,34 @@
 					</div>
 				</div>
 				<div class="contact__box">
-					<form class="form" action="">
+					<form class="form" id="form-contact" action="<?php echo get_template_directory_uri(); ?>/php/contact.php">
 						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
+							<input name="contact-name" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf" placeholder="Город или Область">
+							<input name="contact-city" type="text" class="form__input form__input_pf" placeholder="Город или Область">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf " placeholder="Телефон">
+							<input name="contact-phone" type="text" class="form__input form__input_pf tel" placeholder="Телефон">
 						</div>
 						<div class="form__block form__block_50">
-							<input name="" type="email" class="form__input form__input_pf" placeholder="Электронная почта">
+							<input name="contact-mail" type="email" class="form__input form__input_pf" placeholder="Электронная почта">
 						</div>
 						<div class="form__block">
-							<textarea type="text" class="form__input form__input_textarea " placeholder="Дополнительная информация"></textarea>
+							<textarea name="contact-text" type="text" class="form__input form__input_textarea " placeholder="Дополнительная информация"></textarea>
 						</div>
 
 						<div class="form__checkbox-block">
-							<input name="" type="checkbox" class="form__checkbox" id="checkbox">
-							<label class="form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
+							<input name="contact-checkbox" type="checkbox" class="form__checkbox" id="checkbox">
+							<label id="contact-check" class=" form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
 									даных в соттветсвии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
 								</span></label>
 						</div>
 
 						<button class="button-contact">Оставить заявку</button>
-						<div class="response text text_white text_tac text_mid "></div>
+						<div class="response text text_white text_tac text_mid response-contact"></div>
+						<?php wp_nonce_field('modal_nonce_action-contact', 'modal_nonce_field-contact'); ?>
 					</form>
 				</div>
 			</div>
@@ -115,3 +116,58 @@
 	</section>
 </main>
 <?php get_footer(); ?>
+<script>
+	const formContact = document.querySelector("#form-contact");
+
+	var actContact = formContact.getAttribute("action");
+	formContact.addEventListener("submit", async function(e) {
+		e.preventDefault();
+		var formData = new FormData(formContact);
+		const request = await fetch(actContact, {
+			method: "POST",
+			body: formData
+		});
+
+		const response = await request.json();
+		var inputFormContact = formContact.querySelectorAll("input");
+		inputFormContact.forEach(element => {
+			element.style.border = "1px solid #262626";
+		});
+
+		if (request.ok) {
+			document.querySelector(".response-contact").classList.remove("false");
+			document.querySelector(".response-contact").classList.add("good");
+			document.querySelector(".response-contact").innerHTML = "Успешная отправка";
+			for (var key in response) {
+				if (key == 'contact-checkbox') {
+					document.querySelector("#contact-check").classList.remove("error");
+				} else {
+					document.querySelector(`input[name=${key}]`).style.border = "1px solid #262626";
+				}
+			}
+
+		} else {
+
+
+			switch (request.status) {
+				case 422:
+					document.querySelector(".response-contact").classList.add("false");
+					document.querySelector(".response-contact").innerHTML = "Заполните обязательные поля";
+					for (var key in response) {
+						if (key == 'contact-checkbox') {
+							document.querySelector("#contact-check").classList.add("error");
+						} else {
+							document.querySelector(`input[name=${key}]`).style.border = "1px solid red";
+						}
+					}
+
+					break;
+
+				default:
+					document.querySelector(".response-contact").classList.add("false");
+					document.querySelector(".response-contact").innerHTML = "Что-то пошло не так";
+					break;
+			}
+		}
+	})
+</script>

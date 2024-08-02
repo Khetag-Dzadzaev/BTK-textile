@@ -70,7 +70,7 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 
 						</div>
 						<div class="product-info__cen-button">
-							<p class="text text_nano text_dark text_lh160">Цена за пог.м.: <span><?php echo get_field("czena"); ?><span class="measurement"> ₽ / м<span class="single-cen">2</span></span></span></p>
+							<p class="text text_nano text_dark text_lh160">Цена за пог.м.: <span><?php echo get_field("czena"); ?><span class="measurement"> ₽ <!--/ м<span class="single-cen">2</span>--></span></span></p>
 							<div class="button-contact button-contact_button  order-button">Отправить заявку</div>
 						</div>
 						<?php if (!empty(get_field("tekst"))) { ?>
@@ -149,46 +149,6 @@ $kategori = get_the_terms(get_the_ID(), "kategorii");
 	<?php }
 		}
 	} ?>
-	<div class="modal-order">
-		<div class="container">
-			<div class="modal-order__box">
-				<div class="modal-order__block">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Plus.svg" alt="moda-crest" class="modal-order__crest">
-					<form class="form" action="">
-						<p class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</p>
-						<div class="form__block">
-							<input name="" type="hidden" value="<?php the_title(); ?>">
-							<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600"><?php the_title(); ?></span></p>
-						</div>
-						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
-						</div>
-						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf " placeholder="Город">
-						</div>
-						<div class="form__block form__block_50">
-							<input name="" type="text" class="form__input form__input_pf " placeholder="Телефон">
-						</div>
-						<div class="form__block form__block_50">
-							<input name="" type="email" class="form__input form__input_pf" placeholder="Электронная почта">
-						</div>
-						<div class="form__block">
-							<textarea type="text" class="form__input form__input_textarea " placeholder="Текст сообщения"></textarea>
-						</div>
-
-						<div class="form__checkbox-block">
-							<input name="" type="checkbox" class="form__checkbox" id="checkbox">
-							<label class="form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
-									даных в соттветсвии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
-								</span></label>
-						</div>
-
-						<button class="button-contact">Оставить заявку</button>
-						<div class="response text text_white text_tac text_mid "></div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php echo	get_template_part('template_parts/modal-order'); ?>
 </main>
 <?php get_footer(); ?>
