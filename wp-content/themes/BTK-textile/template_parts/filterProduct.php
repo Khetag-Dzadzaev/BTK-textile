@@ -60,8 +60,8 @@ $kategori = get_terms("tip_odezhdi");
 							echo ('от <strong><span class="Cenamount-dufult1">' . $price_arr[0] . '</span><span class="measurement">₽ / м<span>2</span></span></strong> - до <strong><span class="Cenamount-dufult2">' . $price_arr[1] . '</span><span class="measurement">₽ / м<span>2</span></span></strong>');
 						}
 					} else { ?>
-						от <strong><span class="Cenamount-dufult1"><?php echo get_field("minimalnoe_znacheni_plotnosti", "option") ?></span><span class="measurement">₽ / м<span>2</span></span></strong> - до
-						<strong><span class="Cenamount-dufult2"><?php echo get_field("maksimalnoe_znachenie_plotnosti", "option") ?></span><span class="measurement">₽ / м<span>2</span></span></strong>
+						от <strong><span class="Cenamount-dufult1"><?php echo get_field("minimalnoe_znacheni_plotnosti", "option") ?></span> ₽<!-- <span class="measurement">₽ / м<span>2</span></span> --></strong> - до
+						<strong><span class="Cenamount-dufult2"><?php echo get_field("maksimalnoe_znachenie_plotnosti", "option") ?></span> ₽<!-- <span class="measurement">₽ / м<span>2</span></span> --></strong>
 					<?php } ?>
 				</div>
 				<div id="CenSlider"></div>
