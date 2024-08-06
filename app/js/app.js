@@ -186,7 +186,8 @@ if (CenSlider) {
 			});
 
 			CenSlider.noUiSlider.on('update', function (values) {
-				CenAmount.innerHTML = 'от <strong><span class="Cenamount-dufult1">' + Math.round(values[0]) + '</span><span class="measurement">₽ / м<span>2</span></span></strong> -  до <strong><span class="Cenamount-dufult2">' + Math.round(values[1]) + '</span><span class="measurement">₽ / м<span>2</span></span></strong>';
+				//CenAmount.innerHTML = 'от <strong><span class="Cenamount-dufult1">' + Math.round(values[0]) + '</span><span class="measurement">₽ / м<span>2</span></span></strong> -  до <strong><span class="Cenamount-dufult2">' + Math.round(values[1]) + '</span><span class="measurement">₽ / м<span>2</span></span></strong>';
+				CenAmount.innerHTML = 'от <strong><span class="Cenamount-dufult1">' + Math.round(values[0]) + '</span> ₽</strong> -  до <strong><span class="Cenamount-dufult2">' + Math.round(values[1]) + '</span> ₽</span></strong>';
 				CenamountInput.value = Math.round(values[0]) + "-" + Math.round(values[1]);
 			});
 		}
