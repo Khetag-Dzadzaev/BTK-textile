@@ -11,7 +11,7 @@
 					<?php bcn_display(); ?>
 				</ul>
 			</div>
-			<h1 class="text text__title-mid text_drak text_fw700">Каталог тканей</h1>
+			<h1 class="text text__title-mid text_drak text_fw700">Готовые изделия</h1>
 		</div>
 	</section>
 	<section class="section section_pt">

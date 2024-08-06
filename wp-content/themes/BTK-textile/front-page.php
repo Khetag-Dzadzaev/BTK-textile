@@ -26,7 +26,9 @@
 						$photo = get_field("foto", "term_" . $value->term_id); ?>
 						<div class="product__box">
 							<a href="<?php echo ("/" . $value->taxonomy . "/" . $value->slug); ?>" class="product__block">
-								<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img">
+								<div class="product__img-block">
+									<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img">
+								</div>
 								<div class="product__text  product__text_front-page">
 									<p class="product__link text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->name; ?>
 										<span>
@@ -75,7 +77,9 @@
 						$photo = get_field("foto", "term_" . $value->term_id); ?>
 						<div class="product__box">
 							<a href="<?php echo ("/" . $value->taxonomy . "/" . $value->slug); ?>" class="product__block product__block_bg">
-								<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img product__img_bg">
+								<div class="product__img-block product__img-block_bg">
+									<img src="<?php echo $photo["url"]; ?>" alt="<?php echo $photo["title"]; ?>" class="product__img product__img_bg">
+								</div>
 								<div class="product__text product__text_front-page">
 									<p class="product__link text text_nano text_fw500 text_lh160 text_textUp"><?php echo $value->name; ?>
 										<span>
