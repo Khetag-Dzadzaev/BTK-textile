@@ -402,7 +402,7 @@ img
 		z-index: -10
 		opacity: 0
 		padding: 20px
-		width: 250px
+		width: 350px
 		position: absolute
 		top: 33px
 		display: none
@@ -604,24 +604,26 @@ img
 				padding: 36px 24px
 		&:hover
 			text-decoration: none
-			&>.product-sclad__text
-				&>.product-sclad__link
+			&>.product__img-block
+				&>.product__img
+					transform: scale(1.2)
+			&>.product__text
+				&>.product__link
 					color: $accent
 					&>span
 						transform: translate(10%, -10%)
-	&__img
+	&__img-block
 		width: 100%
 		height: 170px
-		object-fit: cover
-		object-position: center
+		overflow: hidden
 		+media-breakpoint-up(sm)
 			height: 200px
 		+media-breakpoint-up(md)
 			height: 180px
 		+media-breakpoint-up(lg)
 			height: 273px
+		object-position: center
 		&_bg
-			object-fit: contain
 			width: 100%
 			height: 250px
 			+media-breakpoint-up(sm)
@@ -630,6 +632,13 @@ img
 				height: 250px
 			+media-breakpoint-up(lg)
 				height: 305px
+	&__img
+		width: 100%
+		height: 100%
+		object-fit: cover
+		transition: 0.5s
+		&_bg
+			object-fit: contain
 	&__text
 		padding: 8px
 		width: 100%
@@ -721,7 +730,7 @@ img
 			position: absolute
 			width: 18px
 			height: 18px
-			top: calc( 50% - 14px )
+			top: calc( 50% - 9px )
 			left: 0
 			&>svg
 				width: 100%
@@ -810,7 +819,8 @@ img
 	&__box
 		flex: 0 0 50%
 		width: 100%
-		padding: 13px
+		padding: 12px
+		padding-right: 24px
 		&_100
 			flex: 0 0 100%
 		&_carts
@@ -833,6 +843,7 @@ img
 		display: flex
 		flex-wrap: wrap
 		margin: -15px
+		margin-top: -27px
 	&__block
 		flex: 0 0 100%
 		padding: 15px
@@ -937,6 +948,7 @@ img
 	transition: 0.5s
 	&>.text__title-mini
 		padding-left: 15px
+		padding-bottom: 15px
 	&>.button
 		width: 100%
 	&__right
@@ -970,22 +982,24 @@ img
 			border: 1px solid $accent
 		&_textarea
 			resize: none
-			height: auto
 			display: block
+			height: 68px
 			+media-breakpoint-up(wxp)
-				height: 100px
 		&_text
 			border: none
 			padding: 0
 			margin: 0
 			color: #ACA49C
 	&__checkbox-block
-		margin: 40px 0 30px
+		margin-bottom: 32px
+		margin-top: 9px
 		margin-left: 15px
 	&__checkbox
 		position: absolute
 		z-index: -1
 		opacity: 0
+	&__checkbox-text
+		margin: 0
 	&__checkbox+.form__checkbox-text
 		display: inline-flex
 		align-items: center
@@ -1577,11 +1591,6 @@ img
 				padding: 20px
 			+media-breakpoint-up(md)
 				padding: 30px
-			&>.text
-				padding: 15px
-				margin-bottom: 15px
-				+media-breakpoint-up(md)
-					margin-bottom: 30px
 	&__crest
 		width: 40px
 		height: 40px
