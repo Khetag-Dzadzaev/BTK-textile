@@ -46,7 +46,7 @@
 				<div class="modal__block">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Plus.svg" alt="moda-crest" class="modal__crest">
 					<form class="form" id="form-modal" action="<?php echo get_template_directory_uri(); ?>/php/modal.php">
-						<h2 class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</h2>
+						<h2 class="text text__title-mini text_fw500 text_gray" style=" width: 100%; ">Форма обратной связи</h2>
 						<div class="form__block form__block_50">
 							<input name="modal-name" type="text" class="form__input form__input_pf" placeholder="Ваше имя">
 						</div>
@@ -66,7 +66,7 @@
 						<div class="form__checkbox-block">
 							<input name="modal-checkbox" type="checkbox" class="form__checkbox" id="checkbox">
 							<label id="modal-check" class=" form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
-									даных в соттветсвии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
+									даных в соответствии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
 								</span></label>
 						</div>
 

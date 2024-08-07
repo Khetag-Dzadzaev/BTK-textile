@@ -4,7 +4,7 @@
 			<div class="modal-order__block">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Plus.svg" alt="moda-crest" class="modal-order__crest">
 				<form class="form" id="form-order" action="<?php echo get_template_directory_uri(); ?>/php/product.php">
-					<p class="text text__title-mini text_fw500 " style=" width: 100%; ">Форма обратной связи</p>
+					<p class="text text__title-mini text_fw500 text_gray" style=" width: 100%; ">Форма обратной связи</p>
 					<div class="form__block">
 						<input name="order-productName" type="hidden" value="<?php the_title(); ?>">
 						<p class="text text_lh130 text_mini text_dark">Позиция: <span class="text text_mid text_fw600"><?php the_title(); ?></span></p>
@@ -28,7 +28,7 @@
 					<div class="form__checkbox-block">
 						<input name="order-checkbox" type="checkbox" class="form__checkbox" id="checkbox">
 						<label id="order-check" class=" form__checkbox-text" for="checkbox"><span class="">Согласен на обработку персональных
-								даных в соттветсвии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
+								даных в соответствии с <a href=" #" class="form__checkbox-link">политикой конфиденциальности</a>
 							</span></label>
 					</div>
 

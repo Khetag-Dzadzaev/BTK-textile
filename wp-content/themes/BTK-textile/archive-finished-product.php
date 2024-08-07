@@ -40,7 +40,7 @@
 						$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 						$link = html_entity_decode(get_pagenum_link()); ?>
 
-						<a href="#" class="button-ajax text text_nano text_fw500 text_lh160 linux" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">Показать ещё
+						<a href="#" class="button-ajax text text_textUp text_nano text_fw500 text_lh160 linux" data-pages="<?php echo $max_pages; ?>" data-page="<?php echo $paged; ?>" data-link="<?php echo $link; ?>">Показать ещё
 						</a>
 						<?php if (function_exists('wp_pagenavi')) {
 							wp_pagenavi();
