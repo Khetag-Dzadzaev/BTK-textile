@@ -32,7 +32,7 @@
 							</span></label>
 					</div>
 
-					<button class="button-contact">Оставить заявку</button>
+					<button class="button-contact">Отправить</button>
 					<div class="response text text_white text_tac text_mid response-order"></div>
 					<?php wp_nonce_field('modal_nonce_action-product', 'modal_nonce_field-product'); ?>
 				</form>

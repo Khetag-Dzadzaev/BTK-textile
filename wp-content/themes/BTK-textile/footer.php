@@ -70,7 +70,7 @@
 								</span></label>
 						</div>
 
-						<button class="button-contact">Оставить заявку</button>
+						<button class="button-contact">Отправить сообщение</button>
 						<div class="response response-modal text text_white text_tac text_mid "></div>
 						<?php wp_nonce_field('modal_nonce_action', 'modal_nonce_field'); ?>
 					</form>
